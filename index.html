@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>根·中文 Gen Chinese — 清迈陪读家庭中文读写启蒙</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1208;
+  --paper: #FAF6EF;
+  --red: #C0392B;
+  --red-light: #E8D5D2;
+  --gold: #B8860B;
+  --gold-light: #F5EDD0;
+  --green: #1E6B3C;
+  --green-light: #D4EAD8;
+  --blue: #1A4A7A;
+  --blue-light: #D0DFF0;
+  --muted: #7A6A5A;
+  --border: rgba(26,18,8,0.12);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Lora', 'Noto Serif SC', serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+background: rgba(250,246,239,0.95);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid var(–border);
+padding: 14px 40px;
+display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: ‘Noto Serif SC’, serif; font-weight: 900; font-size: 18px; color: var(–red); letter-spacing: 1px; }
+.nav-logo span { color: var(–muted); font-weight: 400; font-size: 13px; margin-left: 8px; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(–muted); font-size: 13px; letter-spacing: 0.5px; transition: color 0.2s; }
+.nav-links a:hover { color: var(–red); }
+.nav-cta {
+background: var(–red); color: #fff;
+padding: 8px 20px; border-radius: 4px;
+font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+text-decoration: none; transition: all 0.2s;
+}
+.nav-cta:hover { background: #A93226; color: #fff; }
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+padding: 120px 40px 80px;
+position: relative;
+display: flex; align-items: center;
+background: linear-gradient(160deg, #FAF6EF 0%, #F0E8D8 100%);
+overflow: hidden;
+}
+.hero::before {
+content: ‘根’;
+position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+font-family: ‘Noto Serif SC’, serif; font-size: 480px; font-weight: 900;
+color: rgba(192,57,43,0.04); line-height: 1; pointer-events: none;
+user-select: none;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-badge {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(–gold-light); border: 1px solid var(–gold);
+padding: 6px 14px; border-radius: 3px;
+font-size: 11px; letter-spacing: 2px; color: var(–gold);
+text-transform: uppercase; margin-bottom: 24px;
+}
+.hero h1 {
+font-family: ‘Noto Serif SC’, serif; font-size: 48px; font-weight: 900;
+line-height: 1.25; color: var(–ink); margin-bottom: 12px;
+}
+.hero h1 em { color: var(–red); font-style: normal; }
+.hero-en { font-size: 15px; color: var(–muted); margin-bottom: 28px; line-height: 1.8; font-style: italic; }
+.hero-desc { font-size: 17px; color: #3A2A1A; margin-bottom: 36px; line-height: 1.9; }
+.hero-btns { display: flex; flex-direction: column; gap: 12px; }
+.btn-primary {
+display: inline-block; background: var(–red); color: #fff;
+padding: 16px 32px; border-radius: 4px; text-decoration: none;
+font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
+transition: all 0.2s; border: none; cursor: pointer; text-align: center;
+font-family: ‘Noto Serif SC’, serif;
+}
+.btn-primary:hover { background: #A93226; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,0.25); }
+.btn-secondary {
+display: inline-block; background: transparent; color: var(–ink);
+padding: 15px 32px; border-radius: 4px; text-decoration: none;
+font-size: 14px; letter-spacing: 0.5px;
+border: 1.5px solid var(–border); transition: all 0.2s; text-align: center;
+cursor: pointer; font-family: ‘Noto Serif SC’, serif;
+}
+.btn-secondary:hover { border-color: var(–red); color: var(–red); }
+.hero-trust { font-size: 12px; color: var(–muted); margin-top: 12px; }
+
+/* Hero right: char cards */
+.hero-cards { display: flex; flex-direction: column; gap: 16px; }
+.char-preview {
+background: #fff; border: 1px solid var(–border);
+border-radius: 8px; padding: 20px 24px;
+box-shadow: 0 4px 20px rgba(26,18,8,0.06);
+display: flex; gap: 20px; align-items: flex-start;
+animation: floatUp 0.6s ease both;
+}
+.char-preview:nth-child(2) { animation-delay: 0.15s; margin-left: 24px; }
+.char-preview:nth-child(3) { animation-delay: 0.3s; }
+@keyframes floatUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.char-big { font-family: ‘Noto Serif SC’, serif; font-size: 52px; font-weight: 900; color: var(–red); line-height: 1; min-width: 52px; }
+.char-info h3 { font-size: 13px; font-weight: 700; color: var(–ink); margin-bottom: 4px; }
+.char-info p { font-size: 12px; color: var(–muted); line-height: 1.6; }
+.char-parts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.char-part { background: var(–red-light); color: var(–red); padding: 2px 8px; border-radius: 3px; font-size: 13px; font-family: ‘Noto Serif SC’, serif; }
+
+/* ── SECTION BASE ── */
+section { padding: 100px 40px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–red); margin-bottom: 16px; display: block; }
+.section-title { font-family: ‘Noto Serif SC’, serif; font-size: 36px; font-weight: 900; color: var(–ink); margin-bottom: 12px; line-height: 1.3; }
+.section-sub { font-size: 15px; color: var(–muted); max-width: 560px; line-height: 1.8; margin-bottom: 56px; }
+
+/* ── PROBLEM ── */
+.problem { background: var(–ink); color: #F0E8D8; }
+.problem .section-label { color: var(–gold); }
+.problem .section-title { color: #F0E8D8; }
+.problem .section-sub { color: #C8B898; }
+.timeline { display: flex; flex-direction: column; gap: 0; border-left: 2px solid rgba(240,232,216,0.15); margin-left: 20px; }
+.timeline-item {
+display: grid; grid-template-columns: 200px 1fr 1fr;
+gap: 32px; padding: 28px 0 28px 40px; position: relative;
+border-bottom: 1px solid rgba(240,232,216,0.08);
+transition: background 0.2s;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-item::before {
+content: ‘’; position: absolute; left: -7px; top: 36px;
+width: 12px; height: 12px; border-radius: 50%;
+background: var(–gold); border: 2px solid var(–ink);
+}
+.timeline-item.danger::before { background: var(–red); }
+.timeline-grade { font-family: ‘Noto Serif SC’, serif; font-size: 22px; font-weight: 700; color: var(–gold); }
+.timeline-stage { font-size: 13px; color: #C8B898; margin-top: 4px; }
+.timeline-reality { font-size: 14px; color: #E0D0B8; line-height: 1.7; }
+.timeline-feeling { font-size: 13px; color: #A09080; line-height: 1.7; font-style: italic; }
+.timeline-item.danger .timeline-grade { color: #E88; }
+.crisis-box {
+background: rgba(192,57,43,0.15); border: 1px solid rgba(192,57,43,0.3);
+border-radius: 6px; padding: 20px 24px; margin-top: 48px;
+font-size: 14px; color: #E8C8B8; line-height: 1.8;
+}
+
+/* ── SOLUTION ── */
+.solution { background: var(–paper); }
+.modules { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.module-card {
+background: #fff; border: 1px solid var(–border);
+border-radius: 8px; padding: 32px 28px;
+box-shadow: 0 2px 12px rgba(26,18,8,0.05);
+transition: all 0.25s; position: relative; overflow: hidden;
+}
+.module-card::before {
+content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.module-card.m1::before { background: var(–blue); }
+.module-card.m2::before { background: var(–green); }
+.module-card.m3::before { background: #6C3483; }
+.module-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,18,8,0.1); }
+.module-icon { font-size: 32px; margin-bottom: 16px; }
+.module-title { font-family: ‘Noto Serif SC’, serif; font-size: 18px; font-weight: 700; color: var(–ink); margin-bottom: 8px; }
+.module-en { font-size: 11px; color: var(–muted); letter-spacing: 1px; margin-bottom: 16px; }
+.module-desc { font-size: 14px; color: #3A2A1A; line-height: 1.8; margin-bottom: 16px; }
+.module-example {
+background: #F8F4EE; border-radius: 4px; padding: 12px 14px;
+font-size: 13px; line-height: 1.7; color: var(–muted);
+border-left: 2px solid var(–border);
+}
+.module-example strong { color: var(–ink); }
+
+/* ── HANZI GENERATOR ── */
+.generator-section { background: linear-gradient(160deg, #F0E8D8, #FAF6EF); }
+.generator-wrapper {
+background: #fff; border: 1px solid var(–border);
+border-radius: 12px; overflow: hidden;
+box-shadow: 0 8px 40px rgba(26,18,8,0.08);
+}
+.gen-header {
+background: var(–ink); padding: 20px 28px;
+display: flex; align-items: center; justify-content: space-between;
+}
+.gen-header-title { font-family: ‘Noto Serif SC’, serif; font-size: 16px; color: #F0E8D8; font-weight: 700; }
+.gen-header-sub { font-size: 12px; color: #A09080; }
+.gen-body { padding: 28px; }
+.gen-input-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.gen-input {
+font-size: 32px; width: 68px; height: 60px; text-align: center;
+border: 2px solid var(–border); border-radius: 6px;
+font-family: ‘Noto Serif SC’, serif; color: var(–ink);
+background: var(–paper); outline: none; transition: border-color 0.2s;
+}
+.gen-input:focus { border-color: var(–red); }
+.gen-btn {
+height: 60px; padding: 0 24px; border-radius: 6px;
+background: var(–red); color: #fff; border: none;
+font-size: 14px; font-weight: 600; cursor: pointer;
+font-family: ‘Noto Serif SC’, serif; transition: all 0.2s; letter-spacing: 0.5px;
+}
+.gen-btn:hover { background: #A93226; }
+.gen-btn:disabled { background: #C8B8A8; cursor: not-allowed; }
+.gen-examples { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
+.gen-example-label { font-size: 11px; color: var(–muted); }
+.gen-chip {
+padding: 4px 12px; border-radius: 20px; background: var(–paper);
+border: 1px solid var(–border); font-family: ‘Noto Serif SC’, serif;
+font-size: 16px; cursor: pointer; color: var(–ink); transition: all 0.15s;
+}
+.gen-chip:hover { border-color: var(–red); color: var(–red); background: var(–red-light); }
+.gen-result { display: none; }
+.gen-result.show { display: block; }
+.gen-card {
+border: 1px solid var(–border); border-radius: 8px; overflow: hidden;
+}
+.gen-card-hero {
+background: linear-gradient(135deg, #FAF0EE, #F0E8D8);
+padding: 24px; display: flex; align-items: center; gap: 20px;
+border-bottom: 1px solid var(–border);
+}
+.gen-char { font-family: ‘Noto Serif SC’, serif; font-size: 72px; font-weight: 900; color: var(–red); line-height: 1; }
+.gen-meta h3 { font-size: 20px; color: var(–muted); margin-bottom: 4px; font-family: ‘Lora’, serif; }
+.gen-meta p { font-size: 15px; color: var(–ink); margin-bottom: 8px; }
+.gen-level { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.gen-row { padding: 18px 24px; border-bottom: 1px solid var(–border); display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
+.gen-row:last-child { border-bottom: none; }
+.gen-row-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–muted); padding-top: 2px; }
+.gen-row-content { font-size: 14px; color: var(–ink); line-height: 1.8; }
+.gen-parts { display: flex; gap: 6px; flex-wrap: wrap; }
+.gen-part { background: var(–red-light); color: var(–red); padding: 3px 10px; border-radius: 3px; font-family: ‘Noto Serif SC’, serif; font-size: 16px; }
+.gen-mom { font-style: italic; color: var(–blue); border-left: 2px solid var(–blue); padding-left: 12px; }
+.gen-error { background: #FEF0EE; border: 1px solid #F5B7B1; border-radius: 6px; padding: 12px 16px; color: var(–red); font-size: 13px; }
+.gen-loading { text-align: center; padding: 32px; color: var(–muted); font-size: 14px; }
+
+/* ── PRICING ── */
+.pricing { background: var(–paper); }
+.pricing-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; max-width: 800px; }
+.price-card {
+border: 1px solid var(–border); border-radius: 8px; padding: 36px 32px;
+background: #fff; transition: all 0.25s;
+}
+.price-card.featured {
+border-color: var(–red); background: var(–ink); color: #F0E8D8;
+box-shadow: 0 12px 40px rgba(26,18,8,0.15);
+}
+.price-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(–muted); margin-bottom: 8px; display: block; }
+.price-card.featured .price-label { color: var(–gold); }
+.price-name { font-family: ‘Noto Serif SC’, serif; font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+.price-amount { font-size: 44px; font-weight: 700; font-family: ‘Lora’, serif; color: var(–red); margin-bottom: 4px; }
+.price-card.featured .price-amount { color: var(–gold); }
+.price-period { font-size: 13px; color: var(–muted); margin-bottom: 28px; }
+.price-card.featured .price-period { color: #A09080; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.price-features li { font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
+.price-features li::before { content: ‘✓’; color: var(–green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.price-card.featured .price-features li::before { color: var(–gold); }
+.price-card.featured .price-features li { color: #E0D0B8; }
+.price-note { font-size: 11px; color: var(–muted); margin-top: 12px; text-align: center; }
+.price-card.featured .price-note { color: #806858; }
+.stripe-badge { display: flex; align-items: center; gap: 6px; justify-content: center; font-size: 11px; color: var(–muted); margin-top: 20px; }
+
+/* ── LEAD FORM ── */
+.leadform { background: linear-gradient(160deg, #1A1208, #2A1A08); color: #F0E8D8; }
+.leadform .section-label { color: var(–gold); }
+.leadform .section-title { color: #F0E8D8; }
+.leadform .section-sub { color: #C8B898; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.form-box {
+background: rgba(240,232,216,0.05); border: 1px solid rgba(240,232,216,0.12);
+border-radius: 8px; padding: 36px;
+}
+.form-box h3 { font-family: ‘Noto Serif SC’, serif; font-size: 20px; color: #F0E8D8; margin-bottom: 8px; }
+.form-box p { font-size: 13px; color: #A09080; margin-bottom: 24px; line-height: 1.7; }
+.form-field { margin-bottom: 16px; }
+.form-field label { display: block; font-size: 11px; letter-spacing: 1px; color: #A09080; margin-bottom: 6px; }
+.form-field input, .form-field select {
+width: 100%; padding: 12px 14px; border-radius: 4px;
+border: 1px solid rgba(240,232,216,0.15);
+background: rgba(240,232,216,0.07); color: #F0E8D8;
+font-size: 14px; font-family: ‘Lora’, serif;
+outline: none; transition: border-color 0.2s;
+}
+.form-field input:focus, .form-field select:focus { border-color: var(–gold); }
+.form-field input::placeholder { color: #60504A; }
+.form-field select option { background: #2A1A08; color: #F0E8D8; }
+.form-submit {
+width: 100%; padding: 14px; border-radius: 4px;
+background: var(–gold); color: var(–ink); border: none;
+font-size: 14px; font-weight: 700; cursor: pointer;
+font-family: ‘Noto Serif SC’, serif; letter-spacing: 0.5px;
+transition: all 0.2s; margin-top: 4px;
+}
+.form-submit:hover { background: #C8960B; transform: translateY(-1px); }
+.form-success {
+display: none; text-align: center; padding: 20px;
+font-size: 15px; color: var(–gold);
+}
+
+/* Contact box */
+.contact-box { display: flex; flex-direction: column; gap: 16px; }
+.contact-item {
+background: rgba(240,232,216,0.05); border: 1px solid rgba(240,232,216,0.1);
+border-radius: 6px; padding: 20px 24px;
+display: flex; gap: 16px; align-items: center;
+text-decoration: none; color: #F0E8D8;
+transition: all 0.2s;
+}
+.contact-item:hover { background: rgba(240,232,216,0.1); border-color: var(–gold); }
+.contact-icon { font-size: 28px; flex-shrink: 0; }
+.contact-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.contact-info p { font-size: 12px; color: #907868; }
+.contact-handle { font-size: 13px; color: var(–gold); margin-top: 4px; font-family: ‘Lora’, serif; }
+
+/* ── FOOTER ── */
+footer {
+background: #0E0A06; color: #605040;
+padding: 40px; text-align: center; font-size: 12px; line-height: 1.8;
+}
+footer strong { color: #907060; }
+
+/* ── ANIMATIONS ── */
+.fade-in { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+.hero-inner { grid-template-columns: 1fr; gap: 40px; }
+.hero::before { display: none; }
+.hero h1 { font-size: 36px; }
+.timeline-item { grid-template-columns: 1fr; gap: 8px; }
+.modules { grid-template-columns: 1fr; }
+.pricing-grid { grid-template-columns: 1fr; }
+.form-grid { grid-template-columns: 1fr; }
+nav { padding: 14px 20px; }
+.nav-links { display: none; }
+section { padding: 70px 20px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <div class="nav-logo">根·中文 <span>Gen Chinese</span></div>
+  <div class="nav-links">
+    <a href="#problem">为什么</a>
+    <a href="#solution">如何解决</a>
+    <a href="#generator">汉字拆解</a>
+    <a href="#pricing">订阅</a>
+    <a href="#contact">联系</a>
+    <a href="https://tally.so/r/Gx1v4z" target="_blank" class="nav-cta">免费领取测评</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🌿 清迈陪读家庭专属</div>
+      <h1>孩子会<em>说</em>中文<br>但读不了、写不出来</h1>
+      <p class="hero-en">Your child speaks fluent Mandarin.<br>But can they read it? Write it without freezing up?</p>
+      <p class="hero-desc">根·中文专为清迈陪读家庭设计——每天10分钟，妈妈不需要备课，帮孩子把读写这块补上。</p>
+      <div class="hero-btns">
+        <a href="https://tally.so/r/Gx1v4z" target="_blank" class="btn-primary">🎁 免费领取读写能力测评</a>
+        <a href="#generator" class="btn-secondary">👀 先看看汉字拆解怎么玩</a>
+        <p class="hero-trust">已有 <strong>200+</strong> 位清迈陪读妈妈加入 · 随时可取消</p>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="char-preview">
+        <div class="char-big">闻</div>
+        <div class="char-info">
+          <h3>「闻」= 门 + 耳</h3>
+          <p>把耳朵贴在门上，才能听见里面的声音。</p>
+          <div class="char-parts">
+            <span class="char-part">门</span>
+            <span class="char-part">耳</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-preview">
+        <div class="char-big">休</div>
+        <div class="char-info">
+          <h3>「休」= 人 + 木</h3>
+          <p>一个人靠在树旁边，在休息。</p>
+          <div class="char-parts">
+            <span class="char-part">人</span>
+            <span class="char-part">木</span>
+          </div>
+        </div>
+      </div>
+      <div class="char-preview">
+        <div class="char-big">明</div>
+        <div class="char-info">
+          <h3>「明」= 日 + 月</h3>
+          <p>太阳和月亮加在一起，当然很明亮。</p>
+          <div class="char-parts">
+            <span class="char-part">日</span>
+            <span class="char-part">月</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+
+<section class="problem" id="problem">
+  <div class="container">
+    <span class="section-label fade-in">清迈真实困境 · The Chiang Mai Problem</span>
+    <h2 class="section-title fade-in">你知道清迈孩子的中文<br>是怎么一步步「断崖」的吗？</h2>
+    <p class="section-sub fade-in">清迈的松弛感是优势，但也是最大的隐患——孩子在不知不觉中，成了中文半文盲。</p>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-grade">K1 — G1</div>
+          <div class="timeline-stage">😊 假象期</div>
+        </div>
+        <div class="timeline-reality">能说流利中文，甚至会背唐诗。口语完全没有问题，家长对读写危机毫无察觉。</div>
+        <div class="timeline-feeling">「我家孩子中文挺好的！」</div>
+      </div>
+      <div class="timeline-item">
+        <div>
+          <div class="timeline-grade">G2 — G3</div>
+          <div class="timeline-stage">😟 阵痛期</div>
+        </div>
+        <div class="timeline-reality">开始学写汉字。发现英文 Phonics 极其简单，而中文音形义分离，开始抗拒阅读中文书。</div>
+        <div class="timeline-feeling">「他最近不爱看中文书了……」</div>
+      </div>
+      <div class="timeline-item danger">
+        <div>
+          <div class="timeline-grade">G4 — G6</div>
+          <div class="timeline-stage">😱 断崖期</div>
+        </div>
+        <div class="timeline-reality">英文写作能力起飞，中文书写彻底崩盘。G4 能读哈利波特原版，中文只能磕磕绊绊读《米小圈》。</div>
+        <div class="timeline-feeling">「辅导中文作业，我们每天都在吵架。」</div>
+      </div>
+      <div class="timeline-item danger">
+        <div>
+          <div class="timeline-grade">G7 — G9</div>
+          <div class="timeline-stage">😰 应试期</div>
+        </div>
+        <div class="timeline-reality">面对 IGCSE / IB 中文考试，花重金请私教突击，但孩子已失去用中文深度思考的能力。</div>
+        <div class="timeline-feeling">「我当初怎么没早点重视……」</div>
+      </div>
+    </div>
+    <div class="crisis-box fade-in">
+      <strong>清迈特有的三个放大器：</strong>国际学校中文课只教日常交际，进度极慢 · 松弛感导致 K1-G2 干预窗口期错过 · 街上满眼泰文英文，中文成了「只在家里存在的孤岛语言」
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+
+<section class="solution" id="solution">
+  <div class="container">
+    <span class="section-label fade-in">如何解决 · The Solution</span>
+    <h2 class="section-title fade-in">三合一陪伴闭环<br>每天10分钟，妈妈不需要备课</h2>
+    <p class="section-sub fade-in">根·中文不是教材，是妈妈的陪伴系统。三个模块，分别解决读写三个层面的卡点。</p>
+    <div class="modules">
+      <div class="module-card m1 fade-in">
+        <div class="module-icon">🧩</div>
+        <div class="module-title">汉字拆解</div>
+        <div class="module-en">Kanji Decoder · Visual Phonics</div>
+        <div class="module-desc">把「死记硬背」变成「乐高拼搭」。让习惯 Phonics 逻辑的孩子发现：汉字不是图画，是有规律的零件组合。</div>
+        <div class="module-example">
+          <strong>系统给妈妈的台词：</strong><br>
+          「你看，「闻」字里面有个耳朵——为什么？因为要把耳朵贴在门上，才能听见里面的声音！」
+        </div>
+      </div>
+      <div class="module-card m2 fade-in">
+        <div class="module-icon">🌟</div>
+        <div class="module-title">成语表达</div>
+        <div class="module-en">Social Currency · Idiom in Context</div>
+        <div class="module-desc">针对「英式中文」的特效药。按清迈真实生活场景推送成语，让孩子在夜市、花市、超市里用出去。</div>
+        <div class="module-example">
+          <strong>英式中文 → 地道表达：</strong><br>
+          「very many people」→ 「人山人海」<br>
+          「I did it all at once」→ 「一气呵成」
+        </div>
+      </div>
+      <div class="module-card m3 fade-in">
+        <div class="module-icon">✍️</div>
+        <div class="module-title">文字化过渡</div>
+        <div class="module-en">The Bridge · Speech to Text</div>
+        <div class="module-desc">从口语到书面，无痛搭桥。孩子口述→转成文字→填入本周的字→完整作文。把1小时痛苦写作变成10分钟填空。</div>
+        <div class="module-example">
+          <strong>妈妈不批改红叉，孩子不体验失败。</strong><br>
+          填上这三个词，你的文章就完美了。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERATOR -->
+
+<section class="generator-section" id="generator">
+  <div class="container">
+    <span class="section-label fade-in">现在就试试 · Try It Now</span>
+    <h2 class="section-title fade-in">汉字拆解生成器</h2>
+    <p class="section-sub fade-in">输入任意汉字，生成完整的拆解故事、妈妈台词和清迈场景锚定。</p>
+    <div class="generator-wrapper fade-in">
+      <div class="gen-header">
+        <div>
+          <div class="gen-header-title">🧩 趣味汉字拆解</div>
+          <div class="gen-header-sub">乐高拼搭逻辑 · 妈妈台词即用 · 清迈场景锚定</div>
+        </div>
+      </div>
+      <div class="gen-body">
+        <div class="gen-input-row">
+          <input type="text" class="gen-input" id="genInput" placeholder="字" maxlength="1">
+          <button class="gen-btn" id="genBtn" onclick="generateChar()">🔍 拆解</button>
+        </div>
+        <div class="gen-examples">
+          <span class="gen-example-label">快速体验：</span>
+          <span class="gen-chip" onclick="quickGen('明')">明</span>
+          <span class="gen-chip" onclick="quickGen('休')">休</span>
+          <span class="gen-chip" onclick="quickGen('森')">森</span>
+          <span class="gen-chip" onclick="quickGen('闻')">闻</span>
+          <span class="gen-chip" onclick="quickGen('家')">家</span>
+          <span class="gen-chip" onclick="quickGen('笑')">笑</span>
+          <span class="gen-chip" onclick="quickGen('飞')">飞</span>
+          <span class="gen-chip" onclick="quickGen('鱼')">鱼</span>
+        </div>
+        <div id="genResult" class="gen-result"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <span class="section-label fade-in">订阅方案 · Pricing</span>
+    <h2 class="section-title fade-in">选择适合你的方案</h2>
+    <p class="section-sub fade-in">早鸟价限时开放，随时可取消，无违约金。</p>
+    <div class="pricing-grid fade-in">
+      <div class="price-card">
+        <span class="price-label">免费体验</span>
+        <div class="price-name">探索版 Starter</div>
+        <div class="price-amount">$0</div>
+        <div class="price-period">永久免费</div>
+        <ul class="price-features">
+          <li>读写能力测评（R1-R5级别）</li>
+          <li>汉字拆解生成器（每天3次）</li>
+          <li>第一周每日任务卡</li>
+          <li>妈妈台词速查表</li>
+        </ul>
+        <a href="https://tally.so/r/Gx1v4z" target="_blank" class="btn-secondary" style="display:block;text-align:center;">免费领取 →</a>
+        <p class="price-note">无需信用卡</p>
+      </div>
+      <div class="price-card featured">
+        <span class="price-label">⭐ 早鸟专属 · 限时</span>
+        <div class="price-name">Pro 陪伴版</div>
+        <div class="price-amount">$29</div>
+        <div class="price-period">/ 月 · 后续涨至 $39</div>
+        <ul class="price-features">
+          <li>探索版全部功能</li>
+          <li>完整字库 500+ 高频字</li>
+          <li>每周个性化内容包（按R级别匹配）</li>
+          <li>AI 语义矫正（英式中文纠偏）</li>
+          <li>五级进度追踪</li>
+          <li>家长情绪支撑手册</li>
+          <li>优先客服支持</li>
+        </ul>
+        <button class="btn-primary" style="width:100%;" onclick="handleStripe()">7天免费体验 Pro →</button>
+        <p class="price-note">随时取消 · 无违约金 · 支持国际信用卡</p>
+        <div class="stripe-badge">🔒 由 Stripe 安全支付保障</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+
+<section class="leadform" id="leadform">
+  <div class="container">
+    <span class="section-label fade-in">免费开始 · Get Started Free</span>
+    <h2 class="section-title fade-in">孩子的中文读写<br>最佳干预期是现在</h2>
+    <p class="section-sub fade-in">免费领取读写能力测评 + 第一周每日任务卡，了解孩子真实水平，获得专属计划。</p>
+    <div class="form-grid fade-in">
+      <div class="form-box">
+        <h3>🎁 免费领取测评包</h3>
+        <p>填写以下信息，我们将通过微信或 Line 发送给您：<br>① 读写能力测评（R1-R5）<br>② 第一周每日任务卡<br>③ 汉字拆解妈妈台词手册</p>
+        <div id="leadFormContent">
+          <div class="form-field">
+            <label>您的称呼</label>
+            <input type="text" placeholder="妈妈的名字" id="formName">
+          </div>
+          <div class="form-field">
+            <label>孩子年级</label>
+            <select id="formGrade">
+              <option value="">请选择</option>
+              <option>K1 / K2 / K3</option>
+              <option>G1 / G2</option>
+              <option>G3 / G4</option>
+              <option>G5 / G6</option>
+              <option>G7+</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>联系方式（微信 ID 或 Line ID）</label>
+            <input type="text" placeholder="请填写微信或 Line ID" id="formContact">
+          </div>
+          <div class="form-field">
+            <label>孩子目前的学习方式</label>
+            <select id="formType">
+              <option value="">请选择</option>
+              <option>在家自学，家长辅导</option>
+              <option>报了网课（LingoAce / 悟空等）</option>
+              <option>上本地中文学校</option>
+              <option>完全没有系统学习</option>
+            </select>
+          </div>
+          <button class="form-submit" onclick="window.open('https://tally.so/r/Gx1v4z','_blank')">立即领取 →</button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          ✅ 已收到！我们会在24小时内通过微信/Line 发送给您。
+        </div>
+      </div>
+      <div>
+        <h3 style="color:#C8A060;font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:20px;">📱 直接联系我们</h3>
+        <div class="contact-box" id="contact">
+          <a class="contact-item" href="weixin://dl/chat?GenChineseOfficial" target="_blank">
+            <span class="contact-icon">💬</span>
+            <div class="contact-info">
+              <h4>微信 WeChat</h4>
+              <p>扫码或搜索 ID 添加</p>
+              <div class="contact-handle">genzhongguo@gmail.com</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default;">
+            <span class="contact-icon">⏰</span>
+            <div class="contact-info">
+              <h4>响应时间</h4>
+              <p>清迈时间，通常24小时内回复</p>
+              <div class="contact-handle">genzhongguo@gmail.com</div>';
+
+try {
+const res = await fetch(‘https://api.anthropic.com/v1/messages’, {
+method: ‘POST’,
+headers: {
+‘Content-Type’: ‘application/json’,
+‘anthropic-dangerous-direct-browser-access’: ‘true’
+},
+body: JSON.stringify({
+model: ‘claude-haiku-4-5-20251001’,
+max_tokens: 1000,
+system: ‘只输出JSON对象，不加任何其他文字，不用代码块包裹，直接{开头}结尾。’,
+messages: [{
+role: ‘user’,
+content: `为汉字「${ch}」生成学习卡片，返回JSON，字段：pinyin(拼音带声调), meaning(含义10字内), parts(部件数组), story(拆解故事2句有画面感), mom(妈妈台词2句含问题), scene(清迈场景1句), chengyu(相关成语), cy_meaning(成语含义), level(R1-R5)`
+}]
+})
+});
+const data = await res.json();
+const raw = (data?.content?.[0]?.text || ‘’).trim();
+const m = raw.match(/{[\s\S]*}/);
+if (!m) throw new Error(‘生成失败，请重试’);
+const d = JSON.parse(m[0]);
+
+```
+const lvColors = {R1:'#FFF0EE',R2:'#FFF6EE',R3:'#EDFAF1',R4:'#EBF5FB',R5:'#F4ECF7'};
+const lvText = {R1:'#922B21',R2:'#BA4A00',R3:'#1E8449',R4:'#2874A2',R5:'#6C3483'};
+const lv = d.level || 'R1';
+const partsHtml = (d.parts||[]).map(p=>`<span class="gen-part">${p}</span>`).join('');
+
+result.innerHTML = `
+  <div class="gen-card">
+    <div class="gen-card-hero">
+      <div class="gen-char">${ch}</div>
+      <div class="gen-meta">
+        <h3>${d.pinyin}</h3>
+        <p>${d.meaning}</p>
+        <span class="gen-level" style="background:${lvColors[lv]};color:${lvText[lv]};border:1px solid ${lvText[lv]}33;">${lv}</span>
+      </div>
+    </div>
+    <div class="gen-row">
+      <div class="gen-row-label">🧩 拆解逻辑</div>
+      <div class="gen-row-content"><div class="gen-parts">${partsHtml}</div><br>${d.story}</div>
+    </div>
+    <div class="gen-row">
+      <div class="gen-row-label">💬 妈妈台词</div>
+      <div class="gen-row-content gen-mom">${d.mom}</div>
+    </div>
+    <div class="gen-row">
+      <div class="gen-row-label">📍 清迈场景</div>
+      <div class="gen-row-content">${d.scene}</div>
+    </div>
+    <div class="gen-row">
+      <div class="gen-row-label">🌟 成语</div>
+      <div class="gen-row-content"><strong style="font-size:16px;font-family:'Noto Serif SC',serif;">${d.chengyu}</strong> — ${d.cy_meaning}</div>
+    </div>
+  </div>`;
+```
+
+} catch(e) {
+result.innerHTML = `<div class="gen-error">⚠️ ${e.message}</div>`;
+} finally {
+btn.disabled = false;
+btn.textContent = ‘🔍 拆解’;
+}
+}
+
+function quickGen(ch) {
+document.getElementById(‘genInput’).value = ch;
+generateChar();
+}
+
+document.getElementById(‘genInput’).addEventListener(‘keydown’, e => {
+if (e.key === ‘Enter’) generateChar();
+});
+
+// ── STRIPE PLACEHOLDER ──
+function handleStripe() {
+window.open(‘https://290994327982.gumroad.com/l/kohsqv?wanted=true’,’_blank’);
+
+}
+
+// ── LEAD FORM ──
+function window.open(‘https://tally.so/r/Gx1v4z’,’_blank’) {
+const name = document.getElementById(‘formName’).value.trim();
+const contact
