@@ -520,32 +520,24 @@ section { padding: 70px 20px; }
   <div class="container">
     <span class="section-label fade-in">现在就试试 · Try It Now</span>
     <h2 class="section-title fade-in">汉字拆解生成器</h2>
-    <p class="section-sub fade-in">输入任意汉字，生成完整的拆解故事、妈妈台词和清迈场景锚定。</p>
-    <div class="generator-wrapper fade-in">
-      <div class="gen-header">
-        <div>
-          <div class="gen-header-title">🧩 趣味汉字拆解</div>
-          <div class="gen-header-sub">乐高拼搭逻辑 · 妈妈台词即用 · 清迈场景锚定</div>
-        </div>
-      </div>
-      <div class="gen-body">
-        <div class="gen-input-row">
-          <input type="text" class="gen-input" id="genInput" placeholder="字" maxlength="1">
-          <button class="gen-btn" id="genBtn" onclick="generateChar()">🔍 拆解</button>
-        </div>
-        <div class="gen-examples">
-          <span class="gen-example-label">快速体验：</span>
-          <span class="gen-chip" onclick="quickGen('明')">明</span>
-          <span class="gen-chip" onclick="quickGen('休')">休</span>
-          <span class="gen-chip" onclick="quickGen('森')">森</span>
-          <span class="gen-chip" onclick="quickGen('闻')">闻</span>
-          <span class="gen-chip" onclick="quickGen('家')">家</span>
-          <span class="gen-chip" onclick="quickGen('笑')">笑</span>
-          <span class="gen-chip" onclick="quickGen('飞')">飞</span>
-          <span class="gen-chip" onclick="quickGen('鱼')">鱼</span>
-        </div>
-        <div id="genResult" class="gen-result"></div>
-      </div>
+    <p class="section-sub fade-in">自然拼读 × 文化意象 × 清迈场景 · 输入任意汉字，生成亲子共读完整脚本</p>
+    <div class="fade-in" style="text-align:center;margin-top:32px;">
+      <a href="generator.html" style="
+        display:inline-block;
+        padding:18px 48px;
+        background:#C03A2B;
+        color:white;
+        border-radius:14px;
+        font-family:'Noto Serif SC',serif;
+        font-size:18px;
+        letter-spacing:2px;
+        text-decoration:none;
+        box-shadow:0 6px 24px rgba(192,57,43,0.3);
+        transition:all 0.2s;
+      ">🔍 打开汉字拆解生成器</a>
+      <p style="margin-top:14px;font-size:13px;color:#907060;font-family:sans-serif;">
+        明 · 休 · 森 · 闻 · 家 · 笑 · 飞 · 鱼 · 山 · 水 · 任意汉字
+      </p>
     </div>
   </div>
 </section>
@@ -649,7 +641,7 @@ section { padding: 70px 20px; }
             <div class="contact-info">
               <h4>微信 WeChat</h4>
               <p>扫码或搜索 ID 添加</p>
-              <div class="contact-handle"><span class="__cf_email__" data-cfemail="e582808b9f8d8a8b8282908aa58288848c89cb868a88">[email&#160;protected]</span></div>
+              <div class="contact-handle">genzhongguo@gmail.com</div>
             </div>
           </a>
           <div class="contact-item" style="cursor:default;">
@@ -657,83 +649,37 @@ section { padding: 70px 20px; }
             <div class="contact-info">
               <h4>响应时间</h4>
               <p>清迈时间，通常24小时内回复</p>
-              <div class="contact-handle"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85e2e0ebffedeaebe2e2f0eac5e2e8e4ece9abe6eae8">[email&#160;protected]</a></div>';
-
-try {
-const res = await fetch(‘https://api.anthropic.com/v1/messages’, {
-method: ‘POST’,
-headers: {
-‘Content-Type’: ‘application/json’,
-‘anthropic-dangerous-direct-browser-access’: ‘true’
-},
-body: JSON.stringify({
-model: ‘claude-haiku-4-5-20251001’,
-max_tokens: 1000,
-system: ‘只输出JSON对象，不加任何其他文字，不用代码块包裹，直接{开头}结尾。’,
-messages: [{
-role: ‘user’,
-content: `为汉字「${ch}」生成学习卡片，返回JSON，字段：pinyin(拼音带声调), meaning(含义10字内), parts(部件数组), story(拆解故事2句有画面感), mom(妈妈台词2句含问题), scene(清迈场景1句), chengyu(相关成语), cy_meaning(成语含义), level(R1-R5)`
-}]
-})
-});
-const data = await res.json();
-const raw = (data?.content?.[0]?.text || ‘’).trim();
-const m = raw.match(/{[\s\S]*}/);
-if (!m) throw new Error(‘生成失败，请重试’);
-const d = JSON.parse(m[0]);
-
-```
-const lvColors = {R1:'#FFF0EE',R2:'#FFF6EE',R3:'#EDFAF1',R4:'#EBF5FB',R5:'#F4ECF7'};
-const lvText = {R1:'#922B21',R2:'#BA4A00',R3:'#1E8449',R4:'#2874A2',R5:'#6C3483'};
-const lv = d.level || 'R1';
-const partsHtml = (d.parts||[]).map(p=>`<span class="gen-part">${p}</span>`).join('');
-
-result.innerHTML = `
-  <div class="gen-card">
-    <div class="gen-card-hero">
-      <div class="gen-char">${ch}</div>
-      <div class="gen-meta">
-        <h3>${d.pinyin}</h3>
-        <p>${d.meaning}</p>
-        <span class="gen-level" style="background:${lvColors[lv]};color:${lvText[lv]};border:1px solid ${lvText[lv]}33;">${lv}</span>
+              <div class="contact-handle">genzhongguo@gmail.com</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="gen-row">
-      <div class="gen-row-label">🧩 拆解逻辑</div>
-      <div class="gen-row-content"><div class="gen-parts">${partsHtml}</div><br>${d.story}</div>
-    </div>
-    <div class="gen-row">
-      <div class="gen-row-label">💬 妈妈台词</div>
-      <div class="gen-row-content gen-mom">${d.mom}</div>
-    </div>
-    <div class="gen-row">
-      <div class="gen-row-label">📍 清迈场景</div>
-      <div class="gen-row-content">${d.scene}</div>
-    </div>
-    <div class="gen-row">
-      <div class="gen-row-label">🌟 成语</div>
-      <div class="gen-row-content"><strong style="font-size:16px;font-family:'Noto Serif SC',serif;">${d.chengyu}</strong> — ${d.cy_meaning}</div>
-    </div>
-  </div>`;
-```
+  </section>
 
-} catch(e) {
-result.innerHTML = `<div class="gen-error">⚠️ ${e.message}</div>`;
-} finally {
-btn.disabled = false;
-btn.textContent = ‘🔍 拆解’;
-}
-}
+  <!-- FOOTER -->
 
-function quickGen(ch) {
-document.getElementById(‘genInput’).value = ch;
-generateChar();
-}
+  <footer style="background:#1A1208;color:#907060;text-align:center;padding:40px 24px;font-size:13px;">
+    <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:#C8A060;margin-bottom:8px;">根·中文</div>
+    <p style="margin-bottom:4px;">专为清迈陪读家庭设计 · Designed for Chiang Mai Families</p>
+    <p style="margin-top:8px;">© 2025 Gen Chinese · Chiang Mai, Thailand · genzhongguo@gmail.com</p>
+  </footer>
 
-document.getElementById(‘genInput’).addEventListener(‘keydown’, e => {
-if (e.key === ‘Enter’) generateChar();
-});
+<script>
 
-// ── STRIPE PLACEHOLDER ──
 function handleStripe() {
-window.open(’https://290994327982.g
+  window.open('https://290994327982.gumroad.com/l/kohsqv?wanted=true','_blank');
+}
+
+function submitLead() {
+  window.open('https://tally.so/r/Gx1v4z','_blank');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => el.isIntersecting && el.target.classList.add('visible'));
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
