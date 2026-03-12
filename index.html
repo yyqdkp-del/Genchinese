@@ -5,6 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>根·中文 Gen Chinese — 清迈陪读家庭中文读写启蒙</title>
+<meta name="description" content="专为清迈陪读家庭设计的中文读写启蒙系统。每天10分钟，妈妈不需要备课，汉字拆解·成语表达·文字化过渡，帮孩子补上读写这块。">
+<meta name="keywords" content="清迈中文启蒙,陪读家庭读写,汉字学习,清迈国际学校中文,海外华人中文教育">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -12,47 +14,59 @@
   --ink: #1A1208;
   --paper: #FAF6EF;
   --red: #C0392B;
+  --red-zhusha: #B5341A;
   --red-light: #E8D5D2;
   --gold: #B8860B;
   --gold-light: #F5EDD0;
   --green: #1E6B3C;
+  --green-chiangmai: #2D6A4F;
   --green-light: #D4EAD8;
   --blue: #1A4A7A;
   --blue-light: #D0DFF0;
   --muted: #7A6A5A;
   --border: rgba(26,18,8,0.12);
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
+
+- { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+/* 桑皮纸纹理背景 */
 body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: 'Lora', 'Noto Serif SC', serif;
-  line-height: 1.7;
-  overflow-x: hidden;
+background-color: var(–paper);
+background-image:
+url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘400’ height=‘400’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.65’ numOctaves=‘3’ stitchTiles=‘stitch’/%3E%3CfeColorMatrix type=‘saturate’ values=‘0’/%3E%3C/filter%3E%3Crect width=‘400’ height=‘400’ filter=‘url(%23noise)’ opacity=‘0.025’/%3E%3C/svg%3E”);
+color: var(–ink);
+font-family: ‘Lora’, ‘Noto Serif SC’, serif;
+line-height: 1.7;
+overflow-x: hidden;
 }
 
 /* ── NAV ── */
 nav {
 position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-background: rgba(250,246,239,0.95);
-backdrop-filter: blur(12px);
+background: rgba(250,246,239,0.82);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
 border-bottom: 1px solid var(–border);
 padding: 14px 40px;
 display: flex; align-items: center; justify-content: space-between;
+transition: all 0.3s;
 }
-.nav-logo { font-family: ‘Noto Serif SC’, serif; font-weight: 900; font-size: 18px; color: var(–red); letter-spacing: 1px; }
+.nav-logo { font-family: ‘Noto Serif SC’, serif; font-weight: 900; font-size: 18px; color: var(–red-zhusha); letter-spacing: 1px; }
 .nav-logo span { color: var(–muted); font-weight: 400; font-size: 13px; margin-left: 8px; }
 .nav-links { display: flex; gap: 28px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(–muted); font-size: 13px; letter-spacing: 0.5px; transition: color 0.2s; }
-.nav-links a:hover { color: var(–red); }
+.nav-links a:hover { color: var(–red-zhusha); }
 .nav-cta {
-background: var(–red); color: #fff;
+background: linear-gradient(180deg, #C84030 0%, #A93226 100%);
+color: #fff;
 padding: 8px 20px; border-radius: 4px;
 font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
 text-decoration: none; transition: all 0.2s;
+box-shadow: 0 2px 8px rgba(192,57,43,0.3);
+text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
-.nav-cta:hover { background: #A93226; color: #fff; }
+.nav-cta:hover { background: linear-gradient(180deg, #D04535 0%, #B03228 100%); transform: translateY(-1px); }
 
 /* ── HERO ── */
 .hero {
@@ -63,14 +77,30 @@ display: flex; align-items: center;
 background: linear-gradient(160deg, #FAF6EF 0%, #F0E8D8 100%);
 overflow: hidden;
 }
-.hero::before {
-content: ‘根’;
-position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
-font-family: ‘Noto Serif SC’, serif; font-size: 480px; font-weight: 900;
-color: rgba(192,57,43,0.04); line-height: 1; pointer-events: none;
-user-select: none;
+/* 水墨笔触装饰 */
+.hero::after {
+content: ‘’;
+position: absolute;
+top: 10%; right: 5%;
+width: 300px; height: 300px;
+background: radial-gradient(ellipse at 60% 40%, rgba(192,57,43,0.04) 0%, transparent 70%),
+radial-gradient(ellipse at 30% 70%, rgba(184,134,11,0.03) 0%, transparent 60%);
+pointer-events: none;
 }
-.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.hero-ink-brush {
+position: absolute;
+font-family: ‘Noto Serif SC’, serif;
+font-weight: 900;
+color: rgba(192,57,43,0.06);
+line-height: 1;
+pointer-events: none;
+user-select: none;
+right: -30px; top: 50%;
+transform: translateY(-50%);
+font-size: 520px;
+letter-spacing: -20px;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
 .hero-badge {
 display: inline-flex; align-items: center; gap: 8px;
 background: var(–gold-light); border: 1px solid var(–gold);
@@ -81,19 +111,29 @@ text-transform: uppercase; margin-bottom: 24px;
 .hero h1 {
 font-family: ‘Noto Serif SC’, serif; font-size: 48px; font-weight: 900;
 line-height: 1.25; color: var(–ink); margin-bottom: 12px;
+letter-spacing: -1px;
 }
-.hero h1 em { color: var(–red); font-style: normal; }
+.hero h1 em { color: var(–red-zhusha); font-style: normal; }
 .hero-en { font-size: 15px; color: var(–muted); margin-bottom: 28px; line-height: 1.8; font-style: italic; }
 .hero-desc { font-size: 17px; color: #3A2A1A; margin-bottom: 36px; line-height: 1.9; }
+.hero-desc strong { color: var(–gold); }
 .hero-btns { display: flex; flex-direction: column; gap: 12px; }
 .btn-primary {
-display: inline-block; background: var(–red); color: #fff;
+display: inline-block;
+background: linear-gradient(180deg, #C84030 0%, #A93226 100%);
+color: #fff;
 padding: 16px 32px; border-radius: 4px; text-decoration: none;
 font-size: 15px; font-weight: 600; letter-spacing: 0.5px;
 transition: all 0.2s; border: none; cursor: pointer; text-align: center;
 font-family: ‘Noto Serif SC’, serif;
+box-shadow: 0 4px 16px rgba(192,57,43,0.3);
+text-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
-.btn-primary:hover { background: #A93226; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,0.25); }
+.btn-primary:hover {
+background: linear-gradient(180deg, #D04535 0%, #B03228 100%);
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(192,57,43,0.35);
+}
 .btn-secondary {
 display: inline-block; background: transparent; color: var(–ink);
 padding: 15px 32px; border-radius: 4px; text-decoration: none;
@@ -101,38 +141,44 @@ font-size: 14px; letter-spacing: 0.5px;
 border: 1.5px solid var(–border); transition: all 0.2s; text-align: center;
 cursor: pointer; font-family: ‘Noto Serif SC’, serif;
 }
-.btn-secondary:hover { border-color: var(–red); color: var(–red); }
+.btn-secondary:hover {
+border-color: var(–red-zhusha); color: var(–red-zhusha);
+box-shadow: 0 4px 12px rgba(26,18,8,0.08);
+}
 .hero-trust { font-size: 12px; color: var(–muted); margin-top: 12px; }
 
-/* Hero right: char cards */
+/* Hero right: char cards — 带旋转和深阴影 */
 .hero-cards { display: flex; flex-direction: column; gap: 16px; }
 .char-preview {
 background: #fff; border: 1px solid var(–border);
 border-radius: 8px; padding: 20px 24px;
-box-shadow: 0 4px 20px rgba(26,18,8,0.06);
+box-shadow: 0 20px 40px rgba(26,18,8,0.1);
 display: flex; gap: 20px; align-items: flex-start;
-animation: floatUp 0.6s ease both;
+animation: floatUp 0.7s ease both;
+transition: transform 0.2s, box-shadow 0.2s;
 }
-.char-preview:nth-child(2) { animation-delay: 0.15s; margin-left: 24px; }
-.char-preview:nth-child(3) { animation-delay: 0.3s; }
-@keyframes floatUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-.char-big { font-family: ‘Noto Serif SC’, serif; font-size: 52px; font-weight: 900; color: var(–red); line-height: 1; min-width: 52px; }
+.char-preview:nth-child(1) { transform: rotate(-0.8deg); }
+.char-preview:nth-child(2) { animation-delay: 0.15s; margin-left: 24px; transform: rotate(0.6deg); }
+.char-preview:nth-child(3) { animation-delay: 0.3s; transform: rotate(-0.4deg); }
+.char-preview:hover { transform: rotate(0deg) translateY(-2px); box-shadow: 0 28px 48px rgba(26,18,8,0.13); }
+@keyframes floatUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; } }
+.char-big { font-family: ‘Noto Serif SC’, serif; font-size: 52px; font-weight: 900; color: var(–red-zhusha); line-height: 1; min-width: 52px; }
 .char-info h3 { font-size: 13px; font-weight: 700; color: var(–ink); margin-bottom: 4px; }
 .char-info p { font-size: 12px; color: var(–muted); line-height: 1.6; }
 .char-parts { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
-.char-part { background: var(–red-light); color: var(–red); padding: 2px 8px; border-radius: 3px; font-size: 13px; font-family: ‘Noto Serif SC’, serif; }
+.char-part { background: var(–red-light); color: var(–red-zhusha); padding: 2px 8px; border-radius: 3px; font-size: 13px; font-family: ‘Noto Serif SC’, serif; }
 
 /* ── SECTION BASE ── */
 section { padding: 100px 40px; }
 .container { max-width: 1100px; margin: 0 auto; }
-.section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–red); margin-bottom: 16px; display: block; }
-.section-title { font-family: ‘Noto Serif SC’, serif; font-size: 36px; font-weight: 900; color: var(–ink); margin-bottom: 12px; line-height: 1.3; }
+.section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(–red-zhusha); margin-bottom: 16px; display: block; }
+.section-title { font-family: ‘Noto Serif SC’, serif; font-size: 36px; font-weight: 900; color: var(–ink); margin-bottom: 12px; line-height: 1.3; letter-spacing: -0.5px; }
 .section-sub { font-size: 15px; color: var(–muted); max-width: 560px; line-height: 1.8; margin-bottom: 56px; }
 
 /* ── PROBLEM ── */
 .problem { background: var(–ink); color: #F0E8D8; }
 .problem .section-label { color: var(–gold); }
-.problem .section-title { color: #F0E8D8; }
+.problem .section-title { color: #F0E8D8; letter-spacing: -0.5px; }
 .problem .section-sub { color: #C8B898; }
 .timeline { display: flex; flex-direction: column; gap: 0; border-left: 2px solid rgba(240,232,216,0.15); margin-left: 20px; }
 .timeline-item {
@@ -147,7 +193,7 @@ content: ‘’; position: absolute; left: -7px; top: 36px;
 width: 12px; height: 12px; border-radius: 50%;
 background: var(–gold); border: 2px solid var(–ink);
 }
-.timeline-item.danger::before { background: var(–red); }
+.timeline-item.danger::before { background: var(–red-zhusha); }
 .timeline-grade { font-family: ‘Noto Serif SC’, serif; font-size: 22px; font-weight: 700; color: var(–gold); }
 .timeline-stage { font-size: 13px; color: #C8B898; margin-top: 4px; }
 .timeline-reality { font-size: 14px; color: #E0D0B8; line-height: 1.7; }
@@ -172,10 +218,10 @@ transition: all 0.25s; position: relative; overflow: hidden;
 content: ‘’; position: absolute; top: 0; left: 0; right: 0; height: 3px;
 }
 .module-card.m1::before { background: var(–blue); }
-.module-card.m2::before { background: var(–green); }
+.module-card.m2::before { background: var(–green-chiangmai); }
 .module-card.m3::before { background: #6C3483; }
 .module-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,18,8,0.1); }
-.module-icon { font-size: 32px; margin-bottom: 16px; }
+.module-icon { font-size: 28px; margin-bottom: 16px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #F8F4EE; }
 .module-title { font-family: ‘Noto Serif SC’, serif; font-size: 18px; font-weight: 700; color: var(–ink); margin-bottom: 8px; }
 .module-en { font-size: 11px; color: var(–muted); letter-spacing: 1px; margin-bottom: 16px; }
 .module-desc { font-size: 14px; color: #3A2A1A; line-height: 1.8; margin-bottom: 16px; }
@@ -186,67 +232,76 @@ border-left: 2px solid var(–border);
 }
 .module-example strong { color: var(–ink); }
 
-/* ── HANZI GENERATOR ── */
-.generator-section { background: linear-gradient(160deg, #F0E8D8, #FAF6EF); }
-.generator-wrapper {
+/* ── SOCIAL PROOF ── */
+.social-proof { background: #FDF8F2; }
+.reviews { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.review-card {
 background: #fff; border: 1px solid var(–border);
-border-radius: 12px; overflow: hidden;
-box-shadow: 0 8px 40px rgba(26,18,8,0.08);
+border-radius: 8px; padding: 28px 24px;
+box-shadow: 0 4px 16px rgba(26,18,8,0.06);
+transition: transform 0.2s, box-shadow 0.2s;
 }
-.gen-header {
-background: var(–ink); padding: 20px 28px;
-display: flex; align-items: center; justify-content: space-between;
+.review-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,18,8,0.09); }
+.review-stars { color: var(–red-zhusha); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+.review-text { font-size: 14px; color: #3A2A1A; line-height: 1.8; margin-bottom: 16px; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 10px; }
+.review-avatar {
+width: 36px; height: 36px; border-radius: 50%;
+background: var(–red-light); color: var(–red-zhusha);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Noto Serif SC’, serif; font-weight: 700; font-size: 14px;
+flex-shrink: 0;
 }
-.gen-header-title { font-family: ‘Noto Serif SC’, serif; font-size: 16px; color: #F0E8D8; font-weight: 700; }
-.gen-header-sub { font-size: 12px; color: #A09080; }
-.gen-body { padding: 28px; }
-.gen-input-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-.gen-input {
-font-size: 32px; width: 68px; height: 60px; text-align: center;
-border: 2px solid var(–border); border-radius: 6px;
+.review-name { font-size: 13px; font-weight: 600; color: var(–ink); }
+.review-grade { font-size: 11px; color: var(–muted); }
+
+/* ── GENERATOR ── */
+.generator-section { background: linear-gradient(160deg, #F0E8D8, #FAF6EF); }
+.free-banner {
+display: inline-block;
+background: linear-gradient(180deg, #C84030 0%, #A93226 100%);
+color: #fff;
+padding: 8px 20px; border-radius: 20px;
+font-size: 13px; font-weight: 600;
+margin-bottom: 24px; letter-spacing: 0.5px;
+box-shadow: 0 3px 10px rgba(192,57,43,0.25);
+}
+
+/* 模拟搜索框 */
+.gen-preview-box {
+max-width: 480px; margin: 0 auto 32px;
+background: #fff; border: 1.5px solid var(–border);
+border-radius: 12px; padding: 20px 24px;
+box-shadow: 0 8px 32px rgba(26,18,8,0.08);
+}
+.gen-preview-label { font-size: 11px; color: var(–muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+.gen-preview-row { display: flex; gap: 10px; }
+.gen-preview-input {
+flex: 1; font-size: 28px; height: 56px; text-align: center;
+border: 2px solid var(–border); border-radius: 8px;
 font-family: ‘Noto Serif SC’, serif; color: var(–ink);
-background: var(–paper); outline: none; transition: border-color 0.2s;
+background: var(–paper); outline: none;
+transition: border-color 0.2s;
+max-width: 72px;
 }
-.gen-input:focus { border-color: var(–red); }
-.gen-btn {
-height: 60px; padding: 0 24px; border-radius: 6px;
-background: var(–red); color: #fff; border: none;
-font-size: 14px; font-weight: 600; cursor: pointer;
-font-family: ‘Noto Serif SC’, serif; transition: all 0.2s; letter-spacing: 0.5px;
+.gen-preview-input:focus { border-color: var(–red-zhusha); }
+.gen-preview-btn {
+flex: 1; height: 56px; border-radius: 8px;
+background: linear-gradient(180deg, #C84030 0%, #A93226 100%);
+color: #fff; border: none; cursor: pointer;
+font-size: 15px; font-weight: 600;
+font-family: ‘Noto Serif SC’, serif;
+box-shadow: 0 3px 10px rgba(192,57,43,0.25);
+transition: all 0.2s;
 }
-.gen-btn:hover { background: #A93226; }
-.gen-btn:disabled { background: #C8B8A8; cursor: not-allowed; }
-.gen-examples { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; }
-.gen-example-label { font-size: 11px; color: var(–muted); }
+.gen-preview-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(192,57,43,0.3); }
+.gen-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .gen-chip {
 padding: 4px 12px; border-radius: 20px; background: var(–paper);
 border: 1px solid var(–border); font-family: ‘Noto Serif SC’, serif;
 font-size: 16px; cursor: pointer; color: var(–ink); transition: all 0.15s;
 }
-.gen-chip:hover { border-color: var(–red); color: var(–red); background: var(–red-light); }
-.gen-result { display: none; }
-.gen-result.show { display: block; }
-.gen-card {
-border: 1px solid var(–border); border-radius: 8px; overflow: hidden;
-}
-.gen-card-hero {
-background: linear-gradient(135deg, #FAF0EE, #F0E8D8);
-padding: 24px; display: flex; align-items: center; gap: 20px;
-border-bottom: 1px solid var(–border);
-}
-.gen-char { font-family: ‘Noto Serif SC’, serif; font-size: 72px; font-weight: 900; color: var(–red); line-height: 1; }
-.gen-meta h3 { font-size: 20px; color: var(–muted); margin-bottom: 4px; font-family: ‘Lora’, serif; }
-.gen-meta p { font-size: 15px; color: var(–ink); margin-bottom: 8px; }
-.gen-level { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
-.gen-row { padding: 18px 24px; border-bottom: 1px solid var(–border); display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
-.gen-row:last-child { border-bottom: none; }
-.gen-row-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(–muted); padding-top: 2px; }
-.gen-row-content { font-size: 14px; color: var(–ink); line-height: 1.8; }
-.gen-parts { display: flex; gap: 6px; flex-wrap: wrap; }
-.gen-part { background: var(–red-light); color: var(–red); padding: 3px 10px; border-radius: 3px; font-family: ‘Noto Serif SC’, serif; font-size: 16px; }
-.gen-mom { font-style: italic; color: var(–blue); border-left: 2px solid var(–blue); padding-left: 12px; }
-.gen-error { background: #FEF0EE; border: 1px solid #F5B7B1; border-radius: 6px; padding: 12px 16px; color: var(–red); font-size: 13px; }
-.gen-loading { text-align: center; padding: 32px; color: var(–muted); font-size: 14px; }
+.gen-chip:hover { border-color: var(–red-zhusha); color: var(–red-zhusha); background: var(–red-light); }
 
 /* ── PRICING ── */
 .pricing { background: var(–paper); }
@@ -256,24 +311,25 @@ border: 1px solid var(–border); border-radius: 8px; padding: 36px 32px;
 background: #fff; transition: all 0.25s;
 }
 .price-card.featured {
-border-color: var(–red); background: var(–ink); color: #F0E8D8;
+border-color: var(–red-zhusha); background: var(–ink); color: #F0E8D8;
 box-shadow: 0 12px 40px rgba(26,18,8,0.15);
 }
 .price-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(–muted); margin-bottom: 8px; display: block; }
 .price-card.featured .price-label { color: var(–gold); }
 .price-name { font-family: ‘Noto Serif SC’, serif; font-size: 22px; font-weight: 700; margin-bottom: 16px; }
-.price-amount { font-size: 44px; font-weight: 700; font-family: ‘Lora’, serif; color: var(–red); margin-bottom: 4px; }
+.price-amount { font-size: 44px; font-weight: 700; font-family: ‘Lora’, serif; color: var(–red-zhusha); margin-bottom: 4px; }
 .price-card.featured .price-amount { color: var(–gold); }
-.price-period { font-size: 13px; color: var(–muted); margin-bottom: 28px; }
-.price-card.featured .price-period { color: #A09080; }
+.price-period { font-size: 13px; color: var(–muted); margin-bottom: 4px; }
+.price-thb { font-size: 12px; color: var(–muted); margin-bottom: 24px; opacity: 0.7; }
+.price-card.featured .price-period, .price-card.featured .price-thb { color: #A09080; }
 .price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
 .price-features li { font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
-.price-features li::before { content: ‘✓’; color: var(–green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.price-features li::before { content: ‘✓’; color: var(–green-chiangmai); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 .price-card.featured .price-features li::before { color: var(–gold); }
 .price-card.featured .price-features li { color: #E0D0B8; }
-.price-note { font-size: 11px; color: var(–muted); margin-top: 12px; text-align: center; }
+.price-note { font-size: 11px; color: var(–muted); margin-top: 8px; text-align: center; line-height: 1.6; }
 .price-card.featured .price-note { color: #806858; }
-.stripe-badge { display: flex; align-items: center; gap: 6px; justify-content: center; font-size: 11px; color: var(–muted); margin-top: 20px; }
+.stripe-badge { display: flex; align-items: center; gap: 6px; justify-content: center; font-size: 11px; color: var(–muted); margin-top: 16px; }
 
 /* ── LEAD FORM ── */
 .leadform { background: linear-gradient(160deg, #1A1208, #2A1A08); color: #F0E8D8; }
@@ -287,30 +343,6 @@ border-radius: 8px; padding: 36px;
 }
 .form-box h3 { font-family: ‘Noto Serif SC’, serif; font-size: 20px; color: #F0E8D8; margin-bottom: 8px; }
 .form-box p { font-size: 13px; color: #A09080; margin-bottom: 24px; line-height: 1.7; }
-.form-field { margin-bottom: 16px; }
-.form-field label { display: block; font-size: 11px; letter-spacing: 1px; color: #A09080; margin-bottom: 6px; }
-.form-field input, .form-field select {
-width: 100%; padding: 12px 14px; border-radius: 4px;
-border: 1px solid rgba(240,232,216,0.15);
-background: rgba(240,232,216,0.07); color: #F0E8D8;
-font-size: 14px; font-family: ‘Lora’, serif;
-outline: none; transition: border-color 0.2s;
-}
-.form-field input:focus, .form-field select:focus { border-color: var(–gold); }
-.form-field input::placeholder { color: #60504A; }
-.form-field select option { background: #2A1A08; color: #F0E8D8; }
-.form-submit {
-width: 100%; padding: 14px; border-radius: 4px;
-background: var(–gold); color: var(–ink); border: none;
-font-size: 14px; font-weight: 700; cursor: pointer;
-font-family: ‘Noto Serif SC’, serif; letter-spacing: 0.5px;
-transition: all 0.2s; margin-top: 4px;
-}
-.form-submit:hover { background: #C8960B; transform: translateY(-1px); }
-.form-success {
-display: none; text-align: center; padding: 20px;
-font-size: 15px; color: var(–gold);
-}
 
 /* Contact box */
 .contact-box { display: flex; flex-direction: column; gap: 16px; }
@@ -322,35 +354,51 @@ text-decoration: none; color: #F0E8D8;
 transition: all 0.2s;
 }
 .contact-item:hover { background: rgba(240,232,216,0.1); border-color: var(–gold); }
-.contact-icon { font-size: 28px; flex-shrink: 0; }
+.contact-icon { font-size: 26px; flex-shrink: 0; }
 .contact-info h4 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
 .contact-info p { font-size: 12px; color: #907868; }
 .contact-handle { font-size: 13px; color: var(–gold); margin-top: 4px; font-family: ‘Lora’, serif; }
 
 /* ── FOOTER ── */
 footer {
-background: #0E0A06; color: #605040;
+background: #0E0A06; color: #907060;
 padding: 40px; text-align: center; font-size: 12px; line-height: 1.8;
 }
-footer strong { color: #907060; }
+footer strong { color: #C8A878; }
+.footer-logo { font-family: ‘Noto Serif SC’, serif; font-size: 20px; color: #C8A060; margin-bottom: 8px; }
 
 /* ── ANIMATIONS ── */
-.fade-in { opacity: 1; transform: translateY(0); transition: all 0.6s ease; }
-.fade-in.animate { opacity: 0; transform: translateY(24px); }
-.fade-in.animate.visible { opacity: 1; transform: translateY(0); }
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── 手机底部固定按钮 ── */
+.mobile-cta {
+display: none;
+position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+background: linear-gradient(180deg, #C84030 0%, #A93226 100%);
+color: #fff; text-align: center;
+padding: 14px 20px;
+font-family: ‘Noto Serif SC’, serif; font-size: 15px; font-weight: 600;
+text-decoration: none;
+box-shadow: 0 -4px 20px rgba(192,57,43,0.3);
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
 .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-.hero::before { display: none; }
-.hero h1 { font-size: 36px; }
+.hero-ink-brush { display: none; }
+.hero h1 { font-size: 32px; letter-spacing: -0.5px; }
+.section-title { font-size: 28px; }
 .timeline-item { grid-template-columns: 1fr; gap: 8px; }
 .modules { grid-template-columns: 1fr; }
+.reviews { grid-template-columns: 1fr; }
 .pricing-grid { grid-template-columns: 1fr; }
 .form-grid { grid-template-columns: 1fr; }
 nav { padding: 14px 20px; }
 .nav-links { display: none; }
 section { padding: 70px 20px; }
+.mobile-cta { display: block; }
+body { padding-bottom: 56px; }
 }
 </style>
 
@@ -371,15 +419,20 @@ section { padding: 70px 20px; }
   </div>
 </nav>
 
+<!-- 手机底部固定按钮 -->
+
+<a href="https://tally.so/r/Gx1v4z" target="_blank" class="mobile-cta">🎁 立即领取读写能力测评</a>
+
 <!-- HERO -->
 
 <section class="hero" id="home">
+  <div class="hero-ink-brush">根</div>
   <div class="hero-inner">
     <div>
       <div class="hero-badge">🌿 清迈陪读家庭专属</div>
       <h1>孩子会<em>说</em>中文<br>但读不了、写不出来</h1>
       <p class="hero-en">Your child speaks fluent Mandarin.<br>But can they read it? Write it without freezing up?</p>
-      <p class="hero-desc">根·中文专为清迈陪读家庭设计——每天10分钟，妈妈不需要备课，帮孩子把读写这块补上。</p>
+      <p class="hero-desc">根·中文专为清迈陪读家庭设计——<strong>每天10分钟，妈妈不需要备课</strong>，帮孩子把读写这块补上。</p>
       <div class="hero-btns">
         <a href="https://tally.so/r/Gx1v4z" target="_blank" class="btn-primary">🎁 免费领取读写能力测评</a>
         <a href="#generator" class="btn-secondary">👀 先看看汉字拆解怎么玩</a>
@@ -392,10 +445,7 @@ section { padding: 70px 20px; }
         <div class="char-info">
           <h3>「闻」= 门 + 耳</h3>
           <p>把耳朵贴在门上，才能听见里面的声音。</p>
-          <div class="char-parts">
-            <span class="char-part">门</span>
-            <span class="char-part">耳</span>
-          </div>
+          <div class="char-parts"><span class="char-part">门</span><span class="char-part">耳</span></div>
         </div>
       </div>
       <div class="char-preview">
@@ -403,10 +453,7 @@ section { padding: 70px 20px; }
         <div class="char-info">
           <h3>「休」= 人 + 木</h3>
           <p>一个人靠在树旁边，在休息。</p>
-          <div class="char-parts">
-            <span class="char-part">人</span>
-            <span class="char-part">木</span>
-          </div>
+          <div class="char-parts"><span class="char-part">人</span><span class="char-part">木</span></div>
         </div>
       </div>
       <div class="char-preview">
@@ -414,10 +461,7 @@ section { padding: 70px 20px; }
         <div class="char-info">
           <h3>「明」= 日 + 月</h3>
           <p>太阳和月亮加在一起，当然很明亮。</p>
-          <div class="char-parts">
-            <span class="char-part">日</span>
-            <span class="char-part">月</span>
-          </div>
+          <div class="char-parts"><span class="char-part">日</span><span class="char-part">月</span></div>
         </div>
       </div>
     </div>
@@ -433,34 +477,22 @@ section { padding: 70px 20px; }
     <p class="section-sub fade-in">清迈的松弛感是优势，但也是最大的隐患——孩子在不知不觉中，成了中文半文盲。</p>
     <div class="timeline fade-in">
       <div class="timeline-item">
-        <div>
-          <div class="timeline-grade">K1 — G1</div>
-          <div class="timeline-stage">😊 假象期</div>
-        </div>
+        <div><div class="timeline-grade">K1 — G1</div><div class="timeline-stage">😊 假象期</div></div>
         <div class="timeline-reality">能说流利中文，甚至会背唐诗。口语完全没有问题，家长对读写危机毫无察觉。</div>
         <div class="timeline-feeling">「我家孩子中文挺好的！」</div>
       </div>
       <div class="timeline-item">
-        <div>
-          <div class="timeline-grade">G2 — G3</div>
-          <div class="timeline-stage">😟 阵痛期</div>
-        </div>
+        <div><div class="timeline-grade">G2 — G3</div><div class="timeline-stage">😟 阵痛期</div></div>
         <div class="timeline-reality">开始学写汉字。发现英文 Phonics 极其简单，而中文音形义分离，开始抗拒阅读中文书。</div>
         <div class="timeline-feeling">「他最近不爱看中文书了……」</div>
       </div>
       <div class="timeline-item danger">
-        <div>
-          <div class="timeline-grade">G4 — G6</div>
-          <div class="timeline-stage">😱 断崖期</div>
-        </div>
+        <div><div class="timeline-grade">G4 — G6</div><div class="timeline-stage">😱 断崖期</div></div>
         <div class="timeline-reality">英文写作能力起飞，中文书写彻底崩盘。G4 能读哈利波特原版，中文只能磕磕绊绊读《米小圈》。</div>
         <div class="timeline-feeling">「辅导中文作业，我们每天都在吵架。」</div>
       </div>
       <div class="timeline-item danger">
-        <div>
-          <div class="timeline-grade">G7 — G9</div>
-          <div class="timeline-stage">😰 应试期</div>
-        </div>
+        <div><div class="timeline-grade">G7 — G9</div><div class="timeline-stage">😰 应试期</div></div>
         <div class="timeline-reality">面对 IGCSE / IB 中文考试，花重金请私教突击，但孩子已失去用中文深度思考的能力。</div>
         <div class="timeline-feeling">「我当初怎么没早点重视……」</div>
       </div>
@@ -514,6 +546,42 @@ section { padding: 70px 20px; }
   </div>
 </section>
 
+<!-- SOCIAL PROOF -->
+
+<section class="social-proof" id="reviews">
+  <div class="container">
+    <span class="section-label fade-in">真实反馈 · What Moms Say</span>
+    <h2 class="section-title fade-in">清迈妈妈们说</h2>
+    <p class="section-sub fade-in">来自真实使用家庭的反馈，孩子的变化比我们预期的还要快。</p>
+    <div class="reviews fade-in">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">「用了两周，儿子现在主动拆字玩！晚上不抗拒认字了，昨天还自己发现「森」是三棵树，开心坏了。」</div>
+        <div class="review-author">
+          <div class="review-avatar">林</div>
+          <div><div class="review-name">林妈妈</div><div class="review-grade">G2 · 清迈 BCIS</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">「台词超级自然，孩子笑得停不下来！终于不觉得中文是负担了。感觉是亲子时光，不是上课。」</div>
+        <div class="review-author">
+          <div class="review-avatar">陈</div>
+          <div><div class="review-name">陈妈妈</div><div class="review-grade">K3 · 清迈 Prem</div></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">「以前辅导作业每次都吵架，现在孩子自己填空，我只需要念台词。G4 期末中文作文居然得了 A！」</div>
+        <div class="review-author">
+          <div class="review-avatar">王</div>
+          <div><div class="review-name">王妈妈</div><div class="review-grade">G4 · 清迈 AISCT</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- GENERATOR -->
 
 <section class="generator-section" id="generator">
@@ -521,24 +589,25 @@ section { padding: 70px 20px; }
     <span class="section-label fade-in">现在就试试 · Try It Now</span>
     <h2 class="section-title fade-in">汉字拆解生成器</h2>
     <p class="section-sub fade-in">自然拼读 × 文化意象 × 清迈场景 · 输入任意汉字，生成亲子共读完整脚本</p>
-    <div class="fade-in" style="text-align:center;margin-top:32px;">
-      <a href="https://gen-fawn.vercel.app" style="
-
-        display:inline-block;
-        padding:18px 48px;
-        background:#C03A2B;
-        color:white;
-        border-radius:14px;
-        font-family:'Noto Serif SC',serif;
-        font-size:18px;
-        letter-spacing:2px;
-        text-decoration:none;
-        box-shadow:0 6px 24px rgba(192,57,43,0.3);
-        transition:all 0.2s;
-      ">🔍 打开汉字拆解生成器</a>
-      <p style="margin-top:14px;font-size:13px;color:#907060;font-family:sans-serif;">
-        明 · 休 · 森 · 闻 · 家 · 笑 · 飞 · 鱼 · 山 · 水 · 任意汉字
-      </p>
+    <div class="fade-in" style="text-align:center;">
+      <div class="free-banner">🎉 探索版每天免费 3 次拆解，先玩玩看？</div>
+      <div class="gen-preview-box">
+        <span class="gen-preview-label">输入汉字，点击拆解</span>
+        <div class="gen-preview-row">
+          <input class="gen-preview-input" id="genInput" type="text" maxlength="1" placeholder="字">
+          <button class="gen-preview-btn" onclick="openGenerator()">🔍 立即拆解</button>
+        </div>
+        <div class="gen-chips">
+          <span class="gen-chip" onclick="setChar('明')">明</span>
+          <span class="gen-chip" onclick="setChar('休')">休</span>
+          <span class="gen-chip" onclick="setChar('森')">森</span>
+          <span class="gen-chip" onclick="setChar('闻')">闻</span>
+          <span class="gen-chip" onclick="setChar('家')">家</span>
+          <span class="gen-chip" onclick="setChar('笑')">笑</span>
+          <span class="gen-chip" onclick="setChar('飞')">飞</span>
+          <span class="gen-chip" onclick="setChar('山')">山</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -554,8 +623,9 @@ section { padding: 70px 20px; }
       <div class="price-card">
         <span class="price-label">免费体验</span>
         <div class="price-name">探索版 Starter</div>
-        <div class="price-amount">$0</div>
+        <div class="price-amount">USD 0</div>
         <div class="price-period">永久免费</div>
+        <div class="price-thb">无需信用卡</div>
         <ul class="price-features">
           <li>读写能力测评（R1-R5级别）</li>
           <li>汉字拆解生成器（每天3次）</li>
@@ -563,13 +633,13 @@ section { padding: 70px 20px; }
           <li>妈妈台词速查表</li>
         </ul>
         <a href="https://tally.so/r/Gx1v4z" target="_blank" class="btn-secondary" style="display:block;text-align:center;">免费领取 →</a>
-        <p class="price-note">无需信用卡</p>
       </div>
       <div class="price-card featured">
         <span class="price-label">⭐ 早鸟专属 · 限时</span>
         <div class="price-name">Pro 陪伴版</div>
-        <div class="price-amount">$29</div>
-        <div class="price-period">/ 月 · 后续涨至 $39</div>
+        <div class="price-amount">USD 29</div>
+        <div class="price-period">/ 月 · 后续涨至 USD 39</div>
+        <div class="price-thb">约 ฿1,050 THB / 月</div>
         <ul class="price-features">
           <li>探索版全部功能</li>
           <li>完整字库 500+ 高频字</li>
@@ -580,8 +650,9 @@ section { padding: 70px 20px; }
           <li>优先客服支持</li>
         </ul>
         <button class="btn-primary" style="width:100%;" onclick="handleStripe()">7天免费体验 Pro →</button>
-        <p class="price-note">随时取消 · 无违约金 · 支持国际信用卡</p>
-        <div class="stripe-badge">🔒 由 Stripe 安全支付保障</div>
+        <p class="price-note">随时取消 · 无违约金<br>支持国际信用卡（Visa/Master）· 由 Stripe 安全支付</p>
+        <p class="price-note" style="margin-top:6px;">微信支付 / 支付宝接入中 · 可先加微信咨询</p>
+        <div class="stripe-badge">🔒 Stripe Secured</div>
       </div>
     </div>
   </div>
@@ -597,87 +668,88 @@ section { padding: 70px 20px; }
     <div class="form-grid fade-in">
       <div class="form-box">
         <h3>🎁 免费领取测评包</h3>
-        <p>填写以下信息，我们将通过微信或 Line 发送给您：<br>① 读写能力测评（R1-R5）<br>② 第一周每日任务卡<br>③ 汉字拆解妈妈台词手册</p>
-        <div id="leadFormContent">
-          <div class="form-field">
-            <label>您的称呼</label>
-            <input type="text" placeholder="妈妈的名字" id="formName">
-          </div>
-          <div class="form-field">
-            <label>孩子年级</label>
-            <select id="formGrade">
-              <option value="">请选择</option>
-              <option>K1 / K2 / K3</option>
-              <option>G1 / G2</option>
-              <option>G3 / G4</option>
-              <option>G5 / G6</option>
-              <option>G7+</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>联系方式（微信 ID 或 Line ID）</label>
-            <input type="text" placeholder="请填写微信或 Line ID" id="formContact">
-          </div>
-          <div class="form-field">
-            <label>孩子目前的学习方式</label>
-            <select id="formType">
-              <option value="">请选择</option>
-              <option>在家自学，家长辅导</option>
-              <option>报了网课（LingoAce / 悟空等）</option>
-              <option>上本地中文学校</option>
-              <option>完全没有系统学习</option>
-            </select>
-          </div>
-          <button class="form-submit" onclick="window.open('https://tally.so/r/Gx1v4z','_blank')">立即领取 →</button>
-        </div>
-        <div class="form-success" id="formSuccess">
-          ✅ 已收到！我们会在24小时内通过微信/Line 发送给您。
-        </div>
+        <p>点击下方按钮，通过 Tally 表单填写信息，我们将在 <strong style="color:#F0E8D8;">24小时内</strong> 通过微信或 Line 发送：<br><br>
+        ① 读写能力测评（R1-R5）<br>
+        ② 第一周每日任务卡<br>
+        ③ 汉字拆解妈妈台词手册</p>
+        <a href="https://tally.so/r/Gx1v4z" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:16px;">
+          立即领取 →
+        </a>
       </div>
       <div>
         <h3 style="color:#C8A060;font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:20px;">📱 直接联系我们</h3>
         <div class="contact-box" id="contact">
-          <a class="contact-item" href="weixin://dl/chat?GenChineseOfficial" target="_blank">
+          <a class="contact-item" href="https://weixin.qq.com/r/GenChineseOfficial" target="_blank">
             <span class="contact-icon">💬</span>
             <div class="contact-info">
               <h4>微信 WeChat</h4>
-              <p>扫码或搜索 ID 添加</p>
-              <div class="contact-handle">genzhongguo@gmail.com</div>
+              <p>直接加微信咨询 / 领取资料</p>
+              <div class="contact-handle">微信 ID：GenChineseOfficial</div>
+            </div>
+          </a>
+          <a class="contact-item" href="https://line.me/ti/p/GenChinese" target="_blank">
+            <span class="contact-icon">🟢</span>
+            <div class="contact-info">
+              <h4>Line</h4>
+              <p>清迈家长常用，欢迎加入</p>
+              <div class="contact-handle">Line ID：GenChinese</div>
             </div>
           </a>
           <div class="contact-item" style="cursor:default;">
-            <span class="contact-icon">⏰</span>
+            <span class="contact-icon">✉️</span>
             <div class="contact-info">
-              <h4>响应时间</h4>
-              <p>清迈时间，通常24小时内回复</p>
+              <h4>邮件联系</h4>
+              <p>通常24小时内回复</p>
               <div class="contact-handle">genzhongguo@gmail.com</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
 
-  <footer style="background:#1A1208;color:#907060;text-align:center;padding:40px 24px;font-size:13px;">
-    <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:#C8A060;margin-bottom:8px;">根·中文</div>
-    <p style="margin-bottom:4px;">专为清迈陪读家庭设计 · Designed for Chiang Mai Families</p>
-    <p style="margin-top:8px;">© 2025 Gen Chinese · Chiang Mai, Thailand · genzhongguo@gmail.com</p>
-  </footer>
+<footer>
+  <div class="footer-logo">根·中文</div>
+  <p>专为清迈陪读家庭设计 · Designed for Chiang Mai Families</p>
+  <p style="margin-top:8px;">© 2025 Gen Chinese · Chiang Mai, Thailand · <strong>genzhongguo@gmail.com</strong></p>
+</footer>
 
 <script>
-
 function handleStripe() {
   window.open('https://290994327982.gumroad.com/l/kohsqv?wanted=true','_blank');
 }
 
-function submitLead() {
-  window.open('https://tally.so/r/Gx1v4z','_blank');
+function setChar(char) {
+  document.getElementById('genInput').value = char;
 }
 
+function openGenerator() {
+  const char = document.getElementById('genInput').value.trim();
+  if (char) {
+    window.open('https://gen-fawn.vercel.app?char=' + encodeURIComponent(char), '_blank');
+  } else {
+    window.open('https://gen-fawn.vercel.app', '_blank');
+  }
+}
+
+// 回车也能触发
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('genInput');
+  if (input) {
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') openGenerator();
+    });
+  }
+});
+
+// Scroll fade-in
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => el.isIntersecting && el.target.classList.add('visible'));
+  entries.forEach(el => {
+    if (el.isIntersecting) el.target.classList.add('visible');
+  });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
