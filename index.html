@@ -682,7 +682,8 @@ async function runDecoder(){
     document.getElementById('loadMsg').textContent=MSGS[mi];
   },900);
   try{
-    const res=await fetch('https://gen-fawn.vercel.app/api/assess',{
+    const res=await fetch('https://gen-fawn.vercel.app/api/decode',{
+
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({mode:'decoder',char})});
     const d=await res.json();
