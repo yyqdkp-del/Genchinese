@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>根·中文 | 清迈陪读家庭的中文解决方案</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link href="[https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap](https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap)" rel="stylesheet"/>
 <style>
 :root{
   --navy:#1A3C5E;--orange:#E8892A;--green:#4A7C59;
@@ -21,20 +20,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;
 display:flex;align-items:center;justify-content:space-between;
 background:rgba(248,246,241,.94);backdrop-filter:blur(14px);
 border-bottom:1px solid rgba(26,60,94,.07)}
-.nav-logo{font-family:‘Noto Serif SC’,serif;font-size:20px;font-weight:900;
-color:var(–navy);letter-spacing:3px}
-.nav-logo span{color:var(–orange)}
-.nav-cta{background:var(–orange);color:#fff;border:none;border-radius:20px;
+.nav-logo{font-family:'Noto Serif SC',serif;font-size:20px;font-weight:900;
+color:var(--navy);letter-spacing:3px}
+.nav-logo span{color:var(--orange)}
+.nav-cta{background:var(--orange);color:#fff;border:none;border-radius:20px;
 padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;
-font-family:‘PingFang SC’,‘Noto Sans SC’,‘Microsoft YaHei’,sans-serif;text-decoration:none;
-transition:transform .2s,box-shadow .2s}
+text-decoration:none;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,137,42,.4)}
 
 /* HERO */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;
 padding:100px 8% 60px;overflow:hidden}
 .hero-bg{position:absolute;inset:0;
-background-image:url(‘IMG_0570.png’);
+background-image:url('IMG_0570.png'); /* 确保这张图片存在 */
 background-size:cover;background-position:center 30%;z-index:0}
 .hero-overlay{position:absolute;inset:0;
 background:linear-gradient(to right,
@@ -43,19 +41,19 @@ rgba(232,245,233,.90) 35%,
 rgba(240,249,244,.50) 62%,
 rgba(255,255,255,0) 100%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:520px}
-.hero-badge{display:inline-block;background:rgba(74,124,89,.15);color:var(–green);
+.hero-badge{display:inline-block;background:rgba(74,124,89,.15);color:var(--green);
 font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;
 margin-bottom:20px;letter-spacing:1px}
-.hero-title{font-family:‘Noto Serif SC’,serif;
-font-size:clamp(1.9rem,5vw,2.8rem);font-weight:900;color:var(–navy);
+.hero-title{font-family:'Noto Serif SC',serif;
+font-size:clamp(1.9rem,5vw,2.8rem);font-weight:900;color:var(--navy);
 line-height:1.45;margin-bottom:20px;
 opacity:0;animation:fadeUp 1.2s ease-out .3s forwards}
 .hero-sub{font-size:1.05rem;color:#3A5A4A;line-height:1.85;margin-bottom:36px;
 opacity:0;animation:fadeUp 1.2s ease-out .6s forwards}
 .hero-btn{display:inline-block;padding:16px 32px;font-size:1rem;font-weight:700;
-color:#fff;background:var(–orange);border-radius:50px;text-decoration:none;
+color:#fff;background:var(--orange);border-radius:50px;text-decoration:none;
 animation:heroPulse 2s infinite,fadeUp 1.2s ease-out .9s forwards;
-opacity:0;font-family:‘PingFang SC’,‘Noto Sans SC’,‘Microsoft YaHei’,sans-serif;transition:transform .2s}
+opacity:0;transition:transform .2s}
 .hero-btn:hover{transform:translateY(-2px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes heroPulse{
@@ -71,38 +69,38 @@ rgba(232,245,233,.97) 0%,rgba(232,245,233,.93) 55%,rgba(232,245,233,.78) 100%)}
 /* SHARED */
 .sec{padding:72px 24px}
 .sec-inner{max-width:720px;margin:0 auto}
-.sec-tag{font-size:11px;font-weight:700;letter-spacing:3px;color:var(–orange);
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--orange);
 text-transform:uppercase;margin-bottom:10px}
-.sec-title{font-family:‘Noto Serif SC’,serif;font-size:clamp(1.45rem,4vw,2rem);
-font-weight:900;color:var(–navy);line-height:1.5;margin-bottom:10px}
-.sec-sub{font-size:14px;color:var(–muted);line-height:1.8;margin-bottom:36px}
+.sec-title{font-family:'Noto Serif SC',serif;font-size:clamp(1.45rem,4vw,2rem);
+font-weight:900;color:var(--navy);line-height:1.5;margin-bottom:10px}
+.sec-sub{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:36px}
 
 /* ACCORDION */
-.accordion-sec{background:var(–warm)}
-.accordion-hint{font-size:13px;color:var(–muted);margin-bottom:24px}
-.acc-item{background:var(–white);border-radius:16px;margin-bottom:12px;
+.accordion-sec{background:var(--warm)}
+.accordion-hint{font-size:13px;color:var(--muted);margin-bottom:24px}
+.acc-item{background:var(--white);border-radius:16px;margin-bottom:12px;
 overflow:hidden;border:1.5px solid #FFE8D1;transition:border-color .3s}
-.acc-item.open{border-color:var(–orange)}
+.acc-item.open{border-color:var(--orange)}
 .acc-head{padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;
-align-items:center;font-weight:700;font-size:15px;color:var(–navy);
+align-items:center;font-weight:700;font-size:15px;color:var(--navy);
 background:#FFF9F2;transition:background .3s;user-select:none;gap:12px}
 .acc-item.open .acc-head{background:#FFF0D9}
-.acc-arrow{font-size:13px;flex-shrink:0;transition:transform .4s ease;color:var(–orange)}
+.acc-arrow{font-size:13px;flex-shrink:0;transition:transform .4s ease;color:var(--orange)}
 .acc-item.open .acc-arrow{transform:rotate(180deg)}
 .acc-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(0,1,0,1);
 font-size:14px;color:#4A5568;line-height:1.85}
 .acc-item.open .acc-body{max-height:600px;transition:max-height .6s ease-in-out}
-.acc-inner{padding:4px 22px 24px}
+.acc-inner{padding:14px 22px 24px}
 .acc-detail{margin-bottom:12px}
 .quote-block{font-style:italic;font-size:13px;color:#718096;
-border-left:3px solid var(–orange);padding:12px 14px;margin-top:14px;
-background:var(–warm);border-radius:0 8px 8px 0}
+border-left:3px solid var(--orange);padding:12px 14px;margin-top:14px;
+background:var(--warm);border-radius:0 8px 8px 0}
 
 /* THREE CARDS */
-.nanny-sec{background:var(–white);text-align:center}
+.nanny-sec{background:var(--white);text-align:center}
 .card-wrapper{display:flex;gap:20px;justify-content:center;margin-top:32px}
-.nanny-card{background:var(–mint);border-radius:24px;padding:32px 22px;
-width:260px;flex-shrink:0;border:1.5px solid var(–border);
+.nanny-card{background:var(--mint);border-radius:24px;padding:32px 22px;
+width:260px;flex-shrink:0;border:1.5px solid var(--border);
 transition:transform .35s ease,box-shadow .35s ease}
 .nanny-card:hover{transform:translateY(-10px) scale(1.02);
 box-shadow:0 24px 48px rgba(74,124,89,.14)}
@@ -111,30 +109,30 @@ animation:iconFloat 3s ease-in-out infinite}
 .nanny-card:nth-child(2) .card-icon{animation-delay:.5s}
 .nanny-card:nth-child(3) .card-icon{animation-delay:1s}
 @keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.nanny-card h3{font-family:‘Noto Serif SC’,serif;font-size:18px;color:var(–navy);margin-bottom:12px}
-.nanny-card p{font-size:14px;color:var(–muted);line-height:1.8}
+.nanny-card h3{font-family:'Noto Serif SC',serif;font-size:18px;color:var(--navy);margin-bottom:12px}
+.nanny-card p{font-size:14px;color:var(--muted);line-height:1.8}
 
 /* 门+耳=闻 乐高动画 */
-.logic-lego{margin-top:18px;background:var(–white);padding:14px 16px;
+.logic-lego{margin-top:18px;background:var(--white);padding:14px 16px;
 border-radius:14px;display:flex;align-items:center;justify-content:center;
-gap:6px;font-family:‘Noto Serif SC’,serif;min-height:56px;overflow:hidden}
-.ll-part{font-size:22px;font-weight:700;color:var(–navy);opacity:.4;
+gap:6px;font-family:'Noto Serif SC',serif;min-height:56px;overflow:hidden}
+.ll-part{font-size:22px;font-weight:700;color:var(--navy);opacity:.4;
 transition:all .5s cubic-bezier(.34,1.56,.64,1)}
-.ll-op{font-size:15px;color:var(–muted);opacity:.5;
+.ll-op{font-size:15px;color:var(--muted);opacity:.5;
 transition:opacity .3s}
-.ll-eq{font-size:15px;color:var(–muted);opacity:0;
+.ll-eq{font-size:15px;color:var(--muted);opacity:0;
 transition:opacity .3s .2s}
-.ll-result{font-size:30px;font-weight:900;color:var(–orange);
+.ll-result{font-size:30px;font-weight:900;color:var(--orange);
 transform:scale(0) rotate(-15deg);opacity:0;
 transition:all .55s cubic-bezier(.34,1.56,.64,1) .25s}
 .nanny-card:hover .ll-part{opacity:1;transform:scale(1.08)}
 .nanny-card:hover .ll-op{opacity:.7}
 .nanny-card:hover .ll-eq{opacity:.7}
 .nanny-card:hover .ll-result{transform:scale(1) rotate(0deg);opacity:1}
-.logic-hint{font-size:11px;color:var(–muted);margin-top:10px;font-style:italic}
+.logic-hint{font-size:11px;color:var(--muted);margin-top:10px;font-style:italic}
 
-.warm-footer{margin-top:48px;font-family:‘Noto Serif SC’,serif;
-font-size:1.05rem;color:var(–navy);font-style:italic;font-weight:700}
+.warm-footer{margin-top:48px;font-family:'Noto Serif SC',serif;
+font-size:1.05rem;color:var(--navy);font-style:italic;font-weight:700}
 @media(max-width:680px){
 .card-wrapper{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
 padding:0 2px 20px;-webkit-overflow-scrolling:touch;
@@ -150,12 +148,11 @@ color:#fff;text-align:center}
 .dec-wrap{max-width:460px;margin:0 auto;position:relative}
 .dec-input{width:100%;padding:18px 64px 18px 24px;border-radius:50px;
 border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);
-color:#fff;font-size:16px;font-family:‘PingFang SC’,‘Noto Sans SC’,‘Microsoft YaHei’,sans-serif;
-outline:none;backdrop-filter:blur(8px);transition:border .3s}
+color:#fff;font-size:16px;outline:none;backdrop-filter:blur(8px);transition:border .3s}
 .dec-input::placeholder{color:rgba(255,255,255,.4)}
-.dec-input:focus{border-color:var(–orange)}
+.dec-input:focus{border-color:var(--orange)}
 .dec-go{position:absolute;right:6px;top:50%;transform:translateY(-50%);
-width:46px;height:46px;background:var(–orange);color:#fff;
+width:46px;height:46px;background:var(--orange);color:#fff;
 border:none;border-radius:50%;font-size:20px;cursor:pointer;
 display:flex;align-items:center;justify-content:center;
 transition:transform .2s,box-shadow .2s}
@@ -169,7 +166,7 @@ box-shadow:0 4px 16px rgba(232,137,42,.5)}
 @keyframes seedSpin{to{transform:rotate(360deg)}}
 .load-ring{position:absolute;inset:0;border-radius:50%;
 border:3px solid rgba(255,255,255,.15);
-border-top-color:var(–orange);animation:ringRotate 1s linear infinite}
+border-top-color:var(--orange);animation:ringRotate 1s linear infinite}
 @keyframes ringRotate{to{transform:rotate(360deg)}}
 .load-texts{margin-top:14px}
 .load-msg{font-size:14px;color:rgba(255,255,255,.65);
@@ -177,66 +174,66 @@ animation:msgFade 2.8s ease-in-out infinite}
 @keyframes msgFade{0%,100%{opacity:.4}50%{opacity:1}}
 
 /* DECODER CARD */
-.dec-card{display:none;background:var(–white);border:3px solid #F5E6D3;
+.dec-card{display:none;background:var(--white);border:3px solid #F5E6D3;
 border-radius:24px;padding:28px;margin:28px auto 0;max-width:460px;
-text-align:left;color:var(–text);
+text-align:left;color:var(--text);
 opacity:0;transform:translateY(24px);
 transition:all .65s cubic-bezier(.175,.885,.32,1.275)}
 .dec-card.show{opacity:1;transform:translateY(0)}
 .dc-char-row{display:flex;align-items:center;justify-content:center;
-gap:10px;font-size:28px;margin-bottom:20px;font-family:‘Noto Serif SC’,serif}
-.dc-p{color:var(–navy);font-weight:700}
-.dc-r{color:var(–orange);font-size:52px;font-weight:900;line-height:1}
-.dc-op{color:var(–muted);font-size:18px}
-.script-box{background:var(–mint);border-radius:12px;padding:16px;margin:16px 0}
-.script-lbl{font-weight:700;color:var(–navy);font-size:13px;margin-bottom:8px}
-.script-box p{font-size:14px;color:var(–text);line-height:1.8}
-.puzzle-box{background:var(–warm);border-radius:10px;padding:14px;
-font-size:13px;color:var(–muted);line-height:1.7;
-border-left:3px solid var(–orange)}
-.puzzle-box strong{color:var(–navy)}
+gap:10px;font-size:28px;margin-bottom:20px;font-family:'Noto Serif SC',serif}
+.dc-p{color:var(--navy);font-weight:700}
+.dc-r{color:var(--orange);font-size:52px;font-weight:900;line-height:1}
+.dc-op{color:var(--muted);font-size:18px}
+.script-box{background:var(--mint);border-radius:12px;padding:16px;margin:16px 0}
+.script-lbl{font-weight:700;color:var(--navy);font-size:13px;margin-bottom:8px}
+.script-box p{font-size:14px;color:var(--text);line-height:1.8}
+.puzzle-box{background:var(--warm);border-radius:10px;padding:14px;
+font-size:13px;color:var(--muted);line-height:1.7;
+border-left:3px solid var(--orange)}
+.puzzle-box strong{color:var(--navy)}
 .dc-actions{display:flex;gap:10px;border-top:1px dashed #ddd;
 padding-top:16px;margin-top:16px}
-.btn-share{background:var(–orange);color:#fff;padding:8px 20px;
+.btn-share{background:var(--orange);color:#fff;padding:8px 20px;
 border-radius:50px;font-size:13px;font-weight:700;border:none;
-cursor:pointer;font-family:‘Noto Sans SC’,sans-serif}
-.btn-retry{background:transparent;color:var(–navy);padding:8px 20px;
+cursor:pointer;font-family:'Noto Sans SC',sans-serif}
+.btn-retry{background:transparent;color:var(--navy);padding:8px 20px;
 border-radius:50px;font-size:13px;font-weight:700;
-border:1.5px solid var(–border);cursor:pointer;
-font-family:‘Noto Sans SC’,sans-serif}
+border:1.5px solid var(--border);cursor:pointer;
+font-family:'Noto Sans SC',sans-serif}
 
 .hist-wrap{margin-top:24px;max-width:460px;margin-left:auto;margin-right:auto}
 .hist-toggle{background:none;border:none;color:rgba(255,255,255,.4);
-font-size:13px;cursor:pointer;font-family:‘Noto Sans SC’,sans-serif}
+font-size:13px;cursor:pointer;font-family:'Noto Sans SC',sans-serif}
 .hist-chips{display:none;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
 .hist-chips.on{display:flex}
 .hchip{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);
 padding:4px 14px;border-radius:20px;font-size:14px;cursor:pointer;
-border:1px solid rgba(255,255,255,.2);font-family:‘Noto Serif SC’,serif}
+border:1px solid rgba(255,255,255,.2);font-family:'Noto Serif SC',serif}
 .hchip:hover{background:rgba(255,255,255,.2)}
 
 /* SOCIAL PROOF */
-.social-sec{background:var(–cream)}
+.social-sec{background:var(--cream)}
 .swiper{display:flex;gap:16px;overflow-x:auto;padding-bottom:16px;
 -webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
 .swiper::-webkit-scrollbar{height:3px}
-.swiper::-webkit-scrollbar-track{background:var(–border);border-radius:2px}
-.swiper::-webkit-scrollbar-thumb{background:var(–orange);border-radius:2px}
-.t-card{background:var(–white);border-radius:20px;padding:24px;
+.swiper::-webkit-scrollbar-track{background:var(--border);border-radius:2px}
+.swiper::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+.t-card{background:var(--white);border-radius:20px;padding:24px;
 min-width:260px;flex-shrink:0;
 box-shadow:0 8px 24px rgba(26,60,94,.07);
-border-bottom:4px solid var(–orange);
+border-bottom:4px solid var(--orange);
 scroll-snap-align:start;position:relative}
-.t-school{background:var(–navy);color:#fff;font-size:11px;font-weight:700;
+.t-school{background:var(--navy);color:#fff;font-size:11px;font-weight:700;
 padding:3px 10px;border-radius:50px;display:inline-block;
 margin-bottom:14px;letter-spacing:1px}
-.t-text{font-size:14px;color:var(–text);line-height:1.8;
+.t-text{font-size:14px;color:var(--text);line-height:1.8;
 margin-bottom:16px;font-style:italic}
-.t-name{font-size:12px;color:var(–muted);font-weight:500}
+.t-name{font-size:12px;color:var(--muted);font-weight:500}
 .t-deco{position:absolute;bottom:14px;right:16px;font-size:18px;opacity:.25}
 
 /* FOMO */
-.fomo-box{margin-top:48px;background:var(–navy);color:#fff;
+.fomo-box{margin-top:48px;background:var(--navy);color:#fff;
 padding:40px 28px;border-radius:24px;position:relative;text-align:center}
 .pulse-dot{width:10px;height:10px;background:#ff4d4f;border-radius:50%;
 position:absolute;top:20px;right:20px;animation:pdot 1.5s infinite}
@@ -244,29 +241,28 @@ position:absolute;top:20px;right:20px;animation:pdot 1.5s infinite}
 0%{box-shadow:0 0 0 0 rgba(255,77,79,.7)}
 70%{box-shadow:0 0 0 10px rgba(255,77,79,0)}
 100%{box-shadow:0 0 0 0 rgba(255,77,79,0)}}
-.fomo-box h3{font-family:‘Noto Serif SC’,serif;font-size:1.4rem;
+.fomo-box h3{font-family:'Noto Serif SC',serif;font-size:1.4rem;
 font-weight:900;margin-bottom:14px}
 .fomo-box>p{font-size:14px;opacity:.8;line-height:1.8;margin-bottom:6px}
 .fomo-perks{display:flex;gap:10px;justify-content:center;
 flex-wrap:wrap;margin:18px 0 24px}
 .fomo-perk{background:rgba(255,255,255,.12);padding:6px 14px;
 border-radius:20px;font-size:13px;border:1px solid rgba(255,255,255,.2)}
-.fomo-btn{display:inline-block;background:var(–orange);color:#fff;
+.fomo-btn{display:inline-block;background:var(--orange);color:#fff;
 padding:14px 32px;border-radius:50px;font-size:15px;font-weight:700;
-text-decoration:none;font-family:‘PingFang SC’,‘Noto Sans SC’,‘Microsoft YaHei’,sans-serif;
-transition:transform .2s,box-shadow .2s}
+text-decoration:none;transition:transform .2s,box-shadow .2s}
 .fomo-btn:hover{transform:translateY(-2px);
 box-shadow:0 8px 24px rgba(232,137,42,.5)}
 .fomo-count{font-size:12px;opacity:.5;margin-top:12px}
 
 /* FINALE */
-.finale-sec{background:linear-gradient(180deg,#fff 0%,var(–warm) 100%);text-align:center}
+.finale-sec{background:linear-gradient(180deg,#fff 0%,var(--warm) 100%);text-align:center}
 
 /* 3D 礼包堆叠 */
 .bundle-scene{position:relative;height:240px;margin:0 auto 56px;max-width:480px}
 .bc{position:absolute;border-radius:16px;box-shadow:0 12px 32px rgba(26,60,94,.12);
 display:flex;flex-direction:column;justify-content:center;align-items:center;
-padding:18px 16px;font-family:‘Noto Serif SC’,serif;
+padding:18px 16px;font-family:'Noto Serif SC',serif;
 transition:transform .4s ease,box-shadow .4s ease;cursor:default}
 .bc:hover{box-shadow:0 20px 48px rgba(26,60,94,.18)}
 /* 底层 - 生存指南 */
@@ -280,22 +276,22 @@ border:1.5px solid #FFCC80;left:50%;top:14px;
 transform:translateX(-50%) rotate(-4deg);z-index:2}
 .bc-2:hover{transform:translateX(-50%) rotate(-6deg) translateY(-4px)}
 /* 顶层 - 任务卡 */
-.bc-3{width:210px;height:210px;background:var(–white);
-border:2px solid var(–orange);left:50%;top:8px;
+.bc-3{width:210px;height:210px;background:var(--white);
+border:2px solid var(--orange);left:50%;top:8px;
 transform:translateX(-50%) rotate(2deg);z-index:3}
 .bc-3:hover{transform:translateX(-50%) rotate(4deg) translateY(-6px)}
 .bc-emoji{font-size:32px;margin-bottom:8px}
-.bc-name{font-size:13px;font-weight:700;color:var(–navy);text-align:center;line-height:1.4}
-.bc-sub{font-size:11px;color:var(–muted);margin-top:4px;text-align:center}
+.bc-name{font-size:13px;font-weight:700;color:var(--navy);text-align:center;line-height:1.4}
+.bc-sub{font-size:11px;color:var(--muted);margin-top:4px;text-align:center}
 /* 报告进度条装饰 */
 .bc-bars{width:100%;margin-top:10px}
 .bc-bar{height:5px;border-radius:3px;margin-bottom:5px;background:rgba(26,60,94,.15)}
-.bc-bar:nth-child(1){width:80%;background:linear-gradient(to right,var(–green),var(–mint))}
-.bc-bar:nth-child(2){width:55%;background:linear-gradient(to right,var(–orange),#FFCC80)}
-.bc-bar:nth-child(3){width:70%;background:linear-gradient(to right,var(–navy),var(–navy2))}
+.bc-bar:nth-child(1){width:80%;background:linear-gradient(to right,var(--green),var(--mint))}
+.bc-bar:nth-child(2){width:55%;background:linear-gradient(to right,var(--orange),#FFCC80)}
+.bc-bar:nth-child(3){width:70%;background:linear-gradient(to right,var(--navy),#2E6B9E)}
 /* 任务卡打勾 */
 .bc-checks{margin-top:10px;text-align:left;width:100%}
-.bc-check{font-size:11px;color:var(–text);margin-bottom:4px}
+.bc-check{font-size:11px;color:var(--text);margin-bottom:4px}
 
 /* 清单 */
 .benefit-list{list-style:none;padding:0;text-align:left;
@@ -303,27 +299,26 @@ display:inline-block;margin:0 auto 40px;max-width:400px}
 .benefit-list li{display:flex;align-items:flex-start;gap:10px;
 margin-bottom:14px;font-size:15px;color:#4A5568;line-height:1.6}
 .benefit-list li .ck{font-size:18px;flex-shrink:0;margin-top:1px}
-.benefit-list li strong{color:var(–navy)}
+.benefit-list li strong{color:var(--navy)}
 
 /* CTA */
-.finale-btn{display:inline-block;background:var(–orange);color:#fff;
+.finale-btn{display:inline-block;background:var(--orange);color:#fff;
 padding:18px 44px;border-radius:50px;font-size:1.1rem;font-weight:700;
 text-decoration:none;box-shadow:0 6px 24px rgba(232,137,42,.45);
 transition:transform .2s,box-shadow .2s;
-font-family:‘PingFang SC’,‘Noto Sans SC’,‘Microsoft YaHei’,sans-serif;
 animation:heroPulse 2.5s infinite}
 .finale-btn:hover{transform:translateY(-2px);
 box-shadow:0 12px 36px rgba(232,137,42,.55)}
 .safe-note{font-size:11px;color:#A0AEC0;margin-top:12px;letter-spacing:.3px}
-.finale-note{font-size:12px;color:var(–muted);margin-top:6px}
+.finale-note{font-size:12px;color:var(--muted);margin-top:6px}
 
 /* QR CARDS */
 .qr-row{display:flex;gap:20px;justify-content:center;
 margin-top:40px;flex-wrap:wrap}
-.qr-card{background:var(–white);border-radius:20px;
+.qr-card{background:var(--white);border-radius:20px;
 padding:24px 20px;width:200px;text-align:center;
 box-shadow:0 4px 12px rgba(0,0,0,.05);
-border:1.5px solid var(–border);
+border:1.5px solid var(--border);
 transition:transform .3s ease,box-shadow .3s ease;flex-shrink:0}
 .qr-card:hover{transform:translateY(-4px);
 box-shadow:0 12px 28px rgba(0,0,0,.1)}
@@ -333,37 +328,32 @@ box-shadow:0 12px 28px rgba(0,0,0,.1)}
 margin-bottom:4px;text-transform:uppercase}
 .qr-card.wechat .qr-platform{color:#07C160}
 .qr-card.line-card .qr-platform{color:#06C755}
-.qr-title{font-family:‘Noto Serif SC’,serif;font-size:14px;
-font-weight:700;color:var(–navy);margin-bottom:16px}
+.qr-title{font-family:'Noto Serif SC',serif;font-size:14px;
+font-weight:700;color:var(--navy);margin-bottom:16px}
 .qr-img-wrap{background:#fff;border-radius:10px;
 padding:12px;border:1px solid #F0F0F0;display:inline-block}
 .qr-img{width:140px;height:140px;object-fit:cover;
 display:block;border-radius:4px}
-.qr-hint{font-size:11px;color:var(–muted);margin-top:12px;line-height:1.5}
+.qr-hint{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5}
 .qr-divider{margin:32px auto 0;max-width:320px;
-display:flex;align-items:center;gap:12px;color:var(–muted);font-size:12px}
-.qr-divider::before,.qr-divider::after{content:’’;flex:1;
-height:1px;background:var(–border)}
+display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px}
+.qr-divider::before,.qr-divider::after{content:'';flex:1;
+height:1px;background:var(--border)}
 @media(max-width:520px){
 .qr-row{flex-direction:column;align-items:center}
 .qr-card{width:100%;max-width:280px}}
 
-footer{background:var(–navy);color:rgba(255,255,255,.5);
+footer{background:var(--navy);color:rgba(255,255,255,.5);
 text-align:center;padding:32px 24px;font-size:13px;line-height:2.2}
 footer strong{color:#fff}
 </style>
-
 </head>
 <body>
 
-<!-- NAV -->
-
 <nav>
   <div class="nav-logo"><span>～</span>根<span>·</span>中文</div>
-  <a href="https://gen-fawn.vercel.app/assess.html" class="nav-cta">免费测评 →</a>
+  <a href="[https://gen-fawn.vercel.app/assess.html](https://gen-fawn.vercel.app/assess.html)" class="nav-cta">免费测评 →</a>
 </nav>
-
-<!-- ① HERO -->
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -372,13 +362,11 @@ footer strong{color:#fff}
     <div class="hero-badge">🌿 清迈陪读家庭专属</div>
     <h1 class="hero-title">在清迈，把中文交给这位"数字保姆"</h1>
     <p class="hero-sub">每天10分钟，妈妈不需要做老师<br>只负责陪伴和爱。</p>
-    <a href="https://gen-fawn.vercel.app/assess.html" class="hero-btn">
+    <a href="[https://gen-fawn.vercel.app/assess.html](https://gen-fawn.vercel.app/assess.html)" class="hero-btn">
       立即开始免费5分钟能力测评 →
     </a>
   </div>
 </section>
-
-<!-- ② 断崖手风琴 -->
 
 <section class="sec accordion-sec">
   <div class="sec-inner">
@@ -386,52 +374,48 @@ footer strong{color:#fff}
     <h2 class="sec-title">你知道清迈孩子的中文，<br>是如何一步步"断崖"的吗？😱</h2>
     <p class="accordion-hint">💡 点击展开，看看你家在哪个阶段？</p>
 
-```
-<div class="acc-item">
-  <div class="acc-head" onclick="toggleAcc(this)">
-    <span>😊 K1-G2 假象期 · 会说中文，危机已悄悄埋下</span>
-    <span class="acc-arrow">▼</span>
-  </div>
-  <div class="acc-body">
-    <div class="acc-inner">
-      <p class="acc-detail">在清迈，街上泰英满天飞，中文已成孤岛。此时的"流利"多是生活对话，孩子还没开启字理认知，完全靠死记硬背。</p>
-      <div class="quote-block">"以前在小区跟中国小朋友玩得挺好，我以为中文稳了。谁知上G3换了学校，中文作业一多，他连题目都看不懂了！" —— 匿名妈妈 A</div>
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>😊 K1-G2 假象期 · 会说中文，危机已悄悄埋下</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p class="acc-detail">在清迈，街上泰英满天飞，中文已成孤岛。此时的"流利"多是生活对话，孩子还没开启字理认知，完全靠死记硬背。</p>
+          <div class="quote-block">"以前在小区跟中国小朋友玩得挺好，我以为中文稳了。谁知上G3换了学校，中文作业一多，他连题目都看不懂了！" —— 匿名妈妈 A</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="acc-item">
-  <div class="acc-head" onclick="toggleAcc(this)">
-    <span>😟 G3-G4 阵痛期 · 英文简单，中文开始抗拒</span>
-    <span class="acc-arrow">▼</span>
-  </div>
-  <div class="acc-body">
-    <div class="acc-inner">
-      <p class="acc-detail">英文26个字母就能拼读，中文几千个汉字像天书。孩子在BCIS/Prem同学间都说英文，回家一翻开中文书就开始揉眼睛、上厕所、要喝水。</p>
-      <p class="acc-detail" style="margin-top:10px">饭桌成了战场，每一笔每一划都是亲子关系的火药桶。</p>
-      <div class="quote-block">"每天晚上辅导中文，搞得我和孩子都崩溃。我自己都开始怀疑，逼中文到底值不值得？" —— 累了的 G4 妈妈</div>
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>😟 G3-G4 阵痛期 · 英文简单，中文开始抗拒</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p class="acc-detail">英文26个字母就能拼读，中文几千个汉字像天书。孩子在BCIS/Prem同学间都说英文，回家一翻开中文书就开始揉眼睛、上厕所、要喝水。</p>
+          <p class="acc-detail" style="margin-top:10px">饭桌成了战场，每一笔每一划都是亲子关系的火药桶。</p>
+          <div class="quote-block">"每天晚上辅导中文，搞得我和孩子都崩溃。我自己都开始怀疑，逼中文到底值不值得？" —— 累了的 G4 妈妈</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="acc-item">
-  <div class="acc-head" onclick="toggleAcc(this)">
-    <span>😱 G5+ 断崖期 · 英文飞起，中文彻底崩塌</span>
-    <span class="acc-arrow">▼</span>
-  </div>
-  <div class="acc-body">
-    <div class="acc-inner">
-      <p class="acc-detail">学术词汇全被英文占领，中文思维彻底断层。此时再补，孩子有强烈的挫败感，觉得中文是"这辈子最难的学科"。</p>
-      <div class="quote-block">"最后悔的就是G2没抓紧，现在中文对他来说比泰语还像外语，想聊个深点的话题都开不了口。" —— 苦恼的 G6 妈妈</div>
+    <div class="acc-item">
+      <div class="acc-head" onclick="toggleAcc(this)">
+        <span>😱 G5+ 断崖期 · 英文飞起，中文彻底崩塌</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="acc-inner">
+          <p class="acc-detail">学术词汇全被英文占领，中文思维彻底断层。此时再补，孩子有强烈的挫败感，觉得中文是"这辈子最难的学科"。</p>
+          <div class="quote-block">"最后悔的就是G2没抓紧，现在中文对他来说比泰语还像外语，想聊个深点的话题都开不了口。" —— 苦恼的 G6 妈妈</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-```
 
   </div>
 </section>
-
-<!-- ③ 三合一闭环 -->
 
 <section class="sec nanny-sec">
   <div class="sec-inner" style="text-align:center">
@@ -467,64 +451,56 @@ footer strong{color:#fff}
   <p class="warm-footer">"把备课和吵架交给<span style="font-family:'Noto Serif SC',serif;font-weight:900;color:#1A3C5E;letter-spacing:1px"><span style="color:#E8892A">～</span>根<span style="color:#E8892A">·</span>中文</span>，把爱留给孩子。"</p>
 </section>
 
-<!-- ④ 汉字解码器盲盒 -->
-
 <section class="sec decoder-sec">
   <div class="sec-inner">
     <div class="sec-tag">✨ 现在就试试</div>
     <h2 class="sec-title">汉字解码器盲盒</h2>
     <p class="sec-sub">输入任意汉字，<span style="font-family:'Noto Serif SC',serif;font-weight:900;color:#1A3C5E;letter-spacing:1px"><span style="color:#E8892A">～</span>根<span style="color:#E8892A">·</span>中文</span>秒出字理卡片、妈妈台词、亲子谜题</p>
 
-```
-<div class="dec-wrap">
-  <input type="text" class="dec-input" id="decInput" maxlength="2"
-    placeholder="试试「闻」「休」「明」「怒」..."/>
-  <button class="dec-go" onclick="runDecoder()">🔓</button>
-</div>
+    <div class="dec-wrap">
+      <input type="text" class="dec-input" id="decInput" maxlength="2"
+        placeholder="试试「闻」「休」「明」「怒」..."/>
+      <button class="dec-go" onclick="runDecoder()">🔓</button>
+    </div>
 
-<!-- 加载动画 -->
-<div class="dec-loading" id="decLoading">
-  <div class="load-box">
-    <span class="load-seed">🌱</span>
-    <div class="load-ring"></div>
-  </div>
-  <div class="load-texts">
-    <div class="load-msg" id="loadMsg">正在查阅字理古籍...</div>
-  </div>
-</div>
+    <div class="dec-loading" id="decLoading">
+      <div class="load-box">
+        <span class="load-seed">🌱</span>
+        <div class="load-ring"></div>
+      </div>
+      <div class="load-texts">
+        <div class="load-msg" id="loadMsg">正在查阅字理古籍...</div>
+      </div>
+    </div>
 
-<!-- 结果卡片 -->
-<div class="dec-card" id="decCard">
-  <div class="dc-char-row">
-    <span class="dc-p" id="dcP1">门</span>
-    <span class="dc-op">+</span>
-    <span class="dc-p" id="dcP2">耳</span>
-    <span class="dc-op">=</span>
-    <span class="dc-r" id="dcR">闻</span>
-  </div>
-  <div class="script-box">
-    <div class="script-lbl">👩‍🍼 妈妈这样说：</div>
-    <p id="dcScript"></p>
-  </div>
-  <div class="puzzle-box">
-    <strong>🧩 亲子谜题：</strong><span id="dcPuzzle"></span>
-  </div>
-  <div class="dc-actions">
-    <button class="btn-share" onclick="dcShare()">📤 分享给妈妈群</button>
-    <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
-  </div>
-</div>
+    <div class="dec-card" id="decCard">
+      <div class="dc-char-row">
+        <span class="dc-p" id="dcP1">门</span>
+        <span class="dc-op">+</span>
+        <span class="dc-p" id="dcP2">耳</span>
+        <span class="dc-op">=</span>
+        <span class="dc-r" id="dcR">闻</span>
+      </div>
+      <div class="script-box">
+        <div class="script-lbl">👩‍🍼 妈妈这样说：</div>
+        <p id="dcScript"></p>
+      </div>
+      <div class="puzzle-box">
+        <strong>🧩 亲子谜题：</strong><span id="dcPuzzle"></span>
+      </div>
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare()">📤 分享给妈妈群</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>
+    </div>
 
-<div class="hist-wrap">
-  <button class="hist-toggle" onclick="toggleHist()">📚 历史记录 ▾</button>
-  <div class="hist-chips" id="histChips"></div>
-</div>
-```
+    <div class="hist-wrap">
+      <button class="hist-toggle" onclick="toggleHist()">📚 历史记录 ▾</button>
+      <div class="hist-chips" id="histChips"></div>
+    </div>
 
   </div>
 </section>
-
-<!-- ⑤ 清迈妈妈说 -->
 
 <section class="sec social-sec">
   <div class="sec-inner">
@@ -532,54 +508,50 @@ footer strong{color:#fff}
     <h2 class="sec-title" style="text-align:center">清迈妈妈们怎么说？</h2>
     <p class="sec-sub" style="text-align:center">来自清迈各国际学校真实家长的反馈</p>
 
-```
-<div class="swiper">
-  <div class="t-card">
-    <div class="t-school">BCIS</div>
-    <p class="t-text">"孩子以前抗拒中文，现在看到「休」字会主动给我讲故事了，这种变化太神奇了！"</p>
-    <div class="t-name">— 林妈妈 @ BCIS，G2</div>
-    <div class="t-deco">🐘</div>
-  </div>
-  <div class="t-card">
-    <div class="t-school">Prem</div>
-    <p class="t-text">"用了两周，中文作业终于不再是战场，我竟然有时间下楼喝杯咖啡了！"</p>
-    <div class="t-name">— Sarah @ Prem，G3妈妈</div>
-    <div class="t-deco">☕</div>
-  </div>
-  <div class="t-card">
-    <div class="t-school">CMIS</div>
-    <p class="t-text">"之前每天晚上辅导中文，家里鸡飞狗跳。现在10分钟搞定，亲子关系好多了。"</p>
-    <div class="t-name">— 王妈妈 @ CMIS，G4双胞胎</div>
-    <div class="t-deco">🌿</div>
-  </div>
-  <div class="t-card">
-    <div class="t-school">AISCT</div>
-    <p class="t-text">"没想到<span style="font-family:'Noto Serif SC',serif;font-weight:900;color:#1A3C5E;letter-spacing:1px"><span style="color:#E8892A">～</span>根<span style="color:#E8892A">·</span>中文</span>可以把汉字讲得这么有画面感，孩子第一次说'中文好好玩'！"</p>
-    <div class="t-name">— 张妈妈 @ AISCT，G3</div>
-    <div class="t-deco">✨</div>
-  </div>
-</div>
+    <div class="swiper">
+      <div class="t-card">
+        <div class="t-school">BCIS</div>
+        <p class="t-text">"孩子以前抗拒中文，现在看到「休」字会主动给我讲故事了，这种变化太神奇了！"</p>
+        <div class="t-name">— 林妈妈 @ BCIS，G2</div>
+        <div class="t-deco">🐘</div>
+      </div>
+      <div class="t-card">
+        <div class="t-school">Prem</div>
+        <p class="t-text">"用了两周，中文作业终于不再是战场，我竟然有时间下楼喝杯咖啡了！"</p>
+        <div class="t-name">— Sarah @ Prem，G3妈妈</div>
+        <div class="t-deco">☕</div>
+      </div>
+      <div class="t-card">
+        <div class="t-school">CMIS</div>
+        <p class="t-text">"之前每天晚上辅导中文，家里鸡飞狗跳。现在10分钟搞定，亲子关系好多了。"</p>
+        <div class="t-name">— 王妈妈 @ CMIS，G4双胞胎</div>
+        <div class="t-deco">🌿</div>
+      </div>
+      <div class="t-card">
+        <div class="t-school">AISCT</div>
+        <p class="t-text">"没想到<span style="font-family:'Noto Serif SC',serif;font-weight:900;color:#1A3C5E;letter-spacing:1px"><span style="color:#E8892A">～</span>根<span style="color:#E8892A">·</span>中文</span>可以把汉字讲得这么有画面感，孩子第一次说'中文好好玩'！"</p>
+        <div class="t-name">— 张妈妈 @ AISCT，G3</div>
+        <div class="t-deco">✨</div>
+      </div>
+    </div>
 
-<div class="fomo-box">
-  <div class="pulse-dot"></div>
-  <h3>寻找 10 位清迈"共创妈妈"</h3>
-  <p>深度参与系统优化，抢先体验"中文保姆"全功能</p>
-  <div class="fomo-perks">
-    <span class="fomo-perk">🎁 终身免费使用</span>
-    <span class="fomo-perk">📞 1对1字理定制</span>
-    <span class="fomo-perk">🏆 共创妈妈勋章</span>
-  </div>
-  <a href="https://gen-fawn.vercel.app/assess.html" class="fomo-btn">
-    点击申请共创名额 →
-  </a>
-  <p class="fomo-count">🔴 目前仅剩 4 个名额</p>
-</div>
-```
+    <div class="fomo-box">
+      <div class="pulse-dot"></div>
+      <h3>寻找 10 位清迈"共创妈妈"</h3>
+      <p>深度参与系统优化，抢先体验"中文保姆"全功能</p>
+      <div class="fomo-perks">
+        <span class="fomo-perk">🎁 终身免费使用</span>
+        <span class="fomo-perk">📞 1对1字理定制</span>
+        <span class="fomo-perk">🏆 共创妈妈勋章</span>
+      </div>
+      <a href="[https://gen-fawn.vercel.app/assess.html](https://gen-fawn.vercel.app/assess.html)" class="fomo-btn">
+        点击申请共创名额 →
+      </a>
+      <p class="fomo-count">🔴 目前仅剩 4 个名额</p>
+    </div>
 
   </div>
 </section>
-
-<!-- ⑥ 大收尾礼包 -->
 
 <section class="sec finale-sec">
   <div class="sec-inner">
@@ -587,78 +559,67 @@ footer strong{color:#fff}
     <h2 class="sec-title">完成测评，立即解锁专属大礼包</h2>
     <p class="sec-sub">清迈陪读圈内部传阅版，限时免费</p>
 
-```
-<!-- 3D 堆叠礼包 -->
-<div class="bundle-scene">
-  <!-- 底层：生存指南 -->
-  <div class="bc bc-1">
-    <div class="bc-emoji">🌿</div>
-    <div class="bc-name">《清迈学中文<br>生存指南》</div>
-    <div class="bc-sub">陪读圈内传阅版</div>
-  </div>
-  <!-- 中层：测评报告 -->
-  <div class="bc bc-2">
-    <div class="bc-emoji">📊</div>
-    <div class="bc-name">R1-R5 能力<br>测评报告</div>
-    <div class="bc-bars">
-      <div class="bc-bar"></div>
-      <div class="bc-bar"></div>
-      <div class="bc-bar"></div>
+    <div class="bundle-scene">
+      <div class="bc bc-1">
+        <div class="bc-emoji">🌿</div>
+        <div class="bc-name">《清迈学中文<br>生存指南》</div>
+        <div class="bc-sub">陪读圈内传阅版</div>
+      </div>
+      <div class="bc bc-2">
+        <div class="bc-emoji">📊</div>
+        <div class="bc-name">R1-R5 能力<br>测评报告</div>
+        <div class="bc-bars">
+          <div class="bc-bar"></div>
+          <div class="bc-bar"></div>
+          <div class="bc-bar"></div>
+        </div>
+      </div>
+      <div class="bc bc-3">
+        <div class="bc-emoji">📋</div>
+        <div class="bc-name">第一周专属任务卡</div>
+        <div class="bc-checks">
+          <div class="bc-check">✅ 汉字拆解台词</div>
+          <div class="bc-check">✅ 亲子谜题脚本</div>
+          <div class="bc-check">✅ 10分钟即用</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <!-- 顶层：任务卡 -->
-  <div class="bc bc-3">
-    <div class="bc-emoji">📋</div>
-    <div class="bc-name">第一周专属任务卡</div>
-    <div class="bc-checks">
-      <div class="bc-check">✅ 汉字拆解台词</div>
-      <div class="bc-check">✅ 亲子谜题脚本</div>
-      <div class="bc-check">✅ 10分钟即用</div>
+
+    <ul class="benefit-list">
+      <li><span class="ck">✅</span><span><strong>读写能力测评报告</strong> — R1-R5 专家级建议，精准定位孩子阶段</span></li>
+      <li><span class="ck">✅</span><span><strong>第一周任务卡</strong> — 每天10分钟，即领即用，无需备课</span></li>
+      <li><span class="ck">✅</span><span><strong>汉字拆解台词手册</strong> — 妈妈的专属脚本，让孩子爱上汉字</span></li>
+      <li><span class="ck">✅</span><span><strong>《清迈学中文生存指南》</strong> — 陪读圈内部传阅，多语环境保级秘籍</span></li>
+    </ul>
+
+    <div>
+      <a href="[https://gen-fawn.vercel.app/assess.html](https://gen-fawn.vercel.app/assess.html)" class="finale-btn">
+        立即开始免费测评，领取大礼包 →
+      </a>
     </div>
-  </div>
-</div>
+    <p class="safe-note">🔒 随时咨询，无压力，不骚扰</p>
+    <p class="finale-note">🌿 完全免费 · 无需下载 · 3秒开始</p>
 
-<!-- 清单卖点 -->
-<ul class="benefit-list">
-  <li><span class="ck">✅</span><span><strong>读写能力测评报告</strong> — R1-R5 专家级建议，精准定位孩子阶段</span></li>
-  <li><span class="ck">✅</span><span><strong>第一周任务卡</strong> — 每天10分钟，即领即用，无需备课</span></li>
-  <li><span class="ck">✅</span><span><strong>汉字拆解台词手册</strong> — 妈妈的专属脚本，让孩子爱上汉字</span></li>
-  <li><span class="ck">✅</span><span><strong>《清迈学中文生存指南》</strong> — 陪读圈内部传阅，多语环境保级秘籍</span></li>
-</ul>
+    <div class="qr-divider">或者直接扫码联系</div>
 
-<a href="https://gen-fawn.vercel.app/assess.html" class="finale-btn">
-  立即开始免费测评，领取大礼包 →
-</a>
-<p class="safe-note">🔒 随时咨询，无压力，不骚扰</p>
-<p class="finale-note">🌿 完全免费 · 无需下载 · 3秒开始</p>
-
-<div class="qr-divider">或者直接扫码联系</div>
-
-<div class="qr-row">
-  <!-- WeChat -->
-  <div class="qr-card wechat">
-    <div class="qr-platform">💬 WeChat</div>
-    <div class="qr-title">官方微信顾问</div>
-    <div class="qr-img-wrap">
-      <img class="qr-img"
-        src="wechat_qr.jpeg"
-        alt="根·中文 WeChat 二维码" />
+    <div class="qr-row">
+      <div class="qr-card wechat">
+        <div class="qr-platform">💬 WeChat</div>
+        <div class="qr-title">官方微信顾问</div>
+        <div class="qr-img-wrap">
+          <img class="qr-img" src="wechat_qr.jpeg" alt="根·中文 WeChat 二维码" />
+        </div>
+        <p class="qr-hint">微信扫码<br>加顾问为好友</p>
+      </div>
+      <div class="qr-card line-card">
+        <div class="qr-platform">🟢 LINE</div>
+        <div class="qr-title">官方LINE顾问</div>
+        <div class="qr-img-wrap">
+          <img class="qr-img" src="line_qr.jpeg" alt="根·中文 LINE 二维码" />
+        </div>
+        <p class="qr-hint">LINE扫码<br>适合清迈家庭</p>
+      </div>
     </div>
-    <p class="qr-hint">微信扫码<br>加顾问为好友</p>
-  </div>
-  <!-- LINE -->
-  <div class="qr-card line-card">
-    <div class="qr-platform">🟢 LINE</div>
-    <div class="qr-title">官方LINE顾问</div>
-    <div class="qr-img-wrap">
-      <img class="qr-img"
-        src="line_qr.jpeg"
-        alt="根·中文 LINE 二维码" />
-    </div>
-    <p class="qr-hint">LINE扫码<br>适合清迈家庭</p>
-  </div>
-</div>
-```
 
   </div>
 </section>
@@ -768,6 +729,5 @@ function dcShare(){
 function toggleHist(){document.getElementById('histChips').classList.toggle('on');}
 document.getElementById('decInput').addEventListener('keydown',e=>{if(e.key==='Enter')runDecoder();});
 </script>
-
 </body>
 </html>
