@@ -211,6 +211,36 @@ font-size:13px;cursor:pointer;font-family:'Noto Sans SC',sans-serif}
 padding:4px 14px;border-radius:20px;font-size:14px;cursor:pointer;
 border:1px solid rgba(255,255,255,.2);font-family:'Noto Serif SC',serif}
 .hchip:hover{background:rgba(255,255,255,.2)}
+/* DEC TABS */
+.dec-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.dec-tab{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);
+border:1px solid rgba(255,255,255,.2);border-radius:20px;
+padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;
+font-family:'Noto Sans SC',sans-serif;transition:all .2s}
+.dec-tab.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.dec-panel{display:none}.dec-panel.active{display:block}
+.dec-wrap-wide{display:flex;flex-direction:column;gap:8px;max-width:460px;margin:0 auto}
+.dec-textarea{width:100%;padding:14px 18px;border-radius:16px;
+border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);
+color:#fff;font-size:15px;font-family:'Noto Sans SC',sans-serif;
+outline:none;resize:none;backdrop-filter:blur(8px);transition:border .3s}
+.dec-textarea::placeholder{color:rgba(255,255,255,.4)}
+.dec-textarea:focus{border-color:var(--orange)}
+.dec-keywords{width:100%;padding:10px 18px;border-radius:16px;
+border:2px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);
+color:#fff;font-size:14px;font-family:'Noto Sans SC',sans-serif;outline:none}
+.dec-keywords::placeholder{color:rgba(255,255,255,.35)}
+.dec-go-wide{width:100%;padding:14px;border-radius:50px;
+background:var(--orange);color:#fff;border:none;
+font-size:15px;font-weight:700;cursor:pointer;
+font-family:'Noto Sans SC',sans-serif;transition:all .2s}
+.dec-go-wide:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(232,137,42,.5)}
+.dec-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.dchip{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);
+padding:5px 14px;border-radius:20px;font-size:15px;cursor:pointer;
+border:1px solid rgba(255,255,255,.2);font-family:'Noto Serif SC',serif;transition:all .2s}
+.dchip.sm{font-size:12px;font-family:'Noto Sans SC',sans-serif}
+.dchip:hover{background:rgba(255,255,255,.25)}
 
 /* SOCIAL PROOF */
 .social-sec{background:var(--cream)}
@@ -455,12 +485,55 @@ footer strong{color:#fff}
   <div class="sec-inner">
     <div class="sec-tag">✨ 现在就试试</div>
     <h2 class="sec-title">汉字解码器盲盒</h2>
-    <p class="sec-sub">输入任意汉字，<span style="font-family:'Noto Serif SC',serif;font-weight:900;color:#1A3C5E;letter-spacing:1px"><span style="color:#E8892A">～</span>根<span style="color:#E8892A">·</span>中文</span>秒出字理卡片、妈妈台词、亲子谜题</p>
+    <p class="sec-sub">三大引擎，让孩子爱上中文</p>
 
-    <div class="dec-wrap">
-      <input type="text" class="dec-input" id="decInput" maxlength="2"
-        placeholder="试试「闻」「休」「明」「怒」..."/>
-      <button class="dec-go" onclick="runDecoder()">🔓</button>
+    <div class="dec-tabs">
+      <button class="dec-tab active" data-tab="hanzi" onclick="switchDecTab(this)">🧩 汉字拆解</button>
+      <button class="dec-tab" data-tab="chengyu" onclick="switchDecTab(this)">🌟 成语解读</button>
+      <button class="dec-tab" data-tab="writing" onclick="switchDecTab(this)">✍️ 文字化过渡</button>
+    </div>
+
+    <!-- 汉字拆解 -->
+    <div class="dec-panel active" id="dec-hanzi">
+      <div class="dec-wrap">
+        <input type="text" class="dec-input" id="decInput" maxlength="1" placeholder="试试「闻」「休」「明」「怒」..."/>
+        <button class="dec-go" onclick="runHanzi()">🔓</button>
+      </div>
+      <div class="dec-chips">
+        <span class="dchip" onclick="setDec('hanzi','明')">明</span>
+        <span class="dchip" onclick="setDec('hanzi','休')">休</span>
+        <span class="dchip" onclick="setDec('hanzi','森')">森</span>
+        <span class="dchip" onclick="setDec('hanzi','闻')">闻</span>
+        <span class="dchip" onclick="setDec('hanzi','家')">家</span>
+        <span class="dchip" onclick="setDec('hanzi','笑')">笑</span>
+      </div>
+    </div>
+
+    <!-- 成语解读 -->
+    <div class="dec-panel" id="dec-chengyu">
+      <div class="dec-wrap-wide">
+        <textarea class="dec-textarea" id="cyInput" rows="2" placeholder="输入孩子说的英式中文或情境，如：very many people at the market"></textarea>
+        <button class="dec-go-wide" onclick="runChengyu()">🌟 生成</button>
+      </div>
+      <div class="dec-chips">
+        <span class="dchip sm" onclick="setDec('cy','very many people')">very many people</span>
+        <span class="dchip sm" onclick="setDec('cy','一下子就完成了')">一下子就完成</span>
+        <span class="dchip sm" onclick="setDec('cy','去大象营看大象，很开心')">大象营经历</span>
+      </div>
+    </div>
+
+    <!-- 文字化过渡 -->
+    <div class="dec-panel" id="dec-writing">
+      <div class="dec-wrap-wide">
+        <textarea class="dec-textarea" id="wrInput" rows="2" placeholder="孩子的口述内容，如：今天去夜市，人很多，吃了芒果糯米饭，很好吃"></textarea>
+        <input type="text" class="dec-keywords" id="wrKeywords" placeholder="本周学的字/词（选填，如：明亮、休息）"/>
+        <button class="dec-go-wide" onclick="runWriting()" style="background:linear-gradient(180deg,#7D3E9A,#6C3483)">✍️ 生成</button>
+      </div>
+      <div class="dec-chips">
+        <span class="dchip sm" onclick="setDec('wr','今天去夜市，人很多很多，吃了芒果糯米饭，超级好吃')">夜市经历</span>
+        <span class="dchip sm" onclick="setDec('wr','今天去大象营，大象鼻子很长，我摸了它，有点害怕但很好玩')">大象营</span>
+        <span class="dchip sm" onclick="setDec('wr','今天下雨了，我在家看书，然后和妈妈一起做饼干')">下雨天</span>
+      </div>
     </div>
 
     <div class="dec-loading" id="decLoading">
@@ -473,26 +546,7 @@ footer strong{color:#fff}
       </div>
     </div>
 
-    <div class="dec-card" id="decCard">
-      <div class="dc-char-row">
-        <span class="dc-p" id="dcP1">门</span>
-        <span class="dc-op">+</span>
-        <span class="dc-p" id="dcP2">耳</span>
-        <span class="dc-op">=</span>
-        <span class="dc-r" id="dcR">闻</span>
-      </div>
-      <div class="script-box">
-        <div class="script-lbl">👩‍🍼 妈妈这样说：</div>
-        <p id="dcScript"></p>
-      </div>
-      <div class="puzzle-box">
-        <strong>🧩 亲子谜题：</strong><span id="dcPuzzle"></span>
-      </div>
-      <div class="dc-actions">
-        <button class="btn-share" onclick="dcShare()">📤 分享给妈妈群</button>
-        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
-      </div>
-    </div>
+    <div class="dec-card" id="decCard"></div>
 
     <div class="hist-wrap">
       <button class="hist-toggle" onclick="toggleHist()">📚 历史记录 ▾</button>
@@ -501,6 +555,7 @@ footer strong{color:#fff}
 
   </div>
 </section>
+
 
 <section class="sec social-sec">
   <div class="sec-inner">
@@ -691,46 +746,156 @@ async function runDecoder(){
     d.p1?showCard(char,d.p1,d.p2||'',d.script,d.puzzle):showFB(char);
   }catch(e){clearInterval(lt);load.style.display='none';showFB(char);}
 }
+// ── DECODER ──
+const MSGS=['正在查阅字理古籍...','正在编写亲子脚本...','根·中文正在作画...','正在解锁汉字密码...','翻阅《说文解字》中...'];
+let hist=[],lt;
 
-function showFB(c){
-  const f=FB[c]||{
-    p1:c,p2:'？',
-    script:`「${c}」这个字藏着古人的智慧，每一笔都有故事。让孩子猜猜这个字在说什么？`,
-    puzzle:`宝贝，你觉得「${c}」这个字像什么？像一幅画，还是一个故事？`
-  };
-  showCard(c,f.p1,f.p2,f.script,f.puzzle);
+function switchDecTab(btn){
+  document.querySelectorAll('.dec-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.dec-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('dec-'+btn.dataset.tab).classList.add('active');
+  document.getElementById('decCard').style.display='none';
+  document.getElementById('decCard').classList.remove('show');
 }
 
-function showCard(c,p1,p2,sc,pz){
-  document.getElementById('dcP1').textContent=p1;
-  document.getElementById('dcP2').textContent=p2;
-  document.getElementById('dcR').textContent=c;
-  document.getElementById('dcScript').textContent=sc;
-  document.getElementById('dcPuzzle').textContent=pz;
+function setDec(type,val){
+  if(type==='hanzi') document.getElementById('decInput').value=val;
+  if(type==='cy') document.getElementById('cyInput').value=val;
+  if(type==='wr') document.getElementById('wrInput').value=val;
+}
+
+async function callAPI(body){
+  const res=await fetch('https://gen-fawn.vercel.app/api/generate',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)});
+  return res.json();
+}
+
+function showLoading(msg){
+  document.getElementById('decCard').style.display='none';
+  document.getElementById('decCard').classList.remove('show');
+  const load=document.getElementById('decLoading');
+  load.style.display='block';
+  let mi=0;
+  lt=setInterval(()=>{
+    mi=(mi+1)%MSGS.length;
+    document.getElementById('loadMsg').textContent=msg||MSGS[mi];
+  },900);
+}
+
+function hideLoading(){clearInterval(lt);document.getElementById('decLoading').style.display='none';}
+
+function showCard(html){
+  hideLoading();
   const card=document.getElementById('decCard');
+  card.innerHTML=html;
   card.style.display='block';
   setTimeout(()=>card.classList.add('show'),50);
-  if(!hist.includes(c)){hist.unshift(c);if(hist.length>8)hist.pop();renderHist();}
 }
+
+async function runHanzi(){
+  const char=document.getElementById('decInput').value.trim();
+  if(!char)return;
+  showLoading('正在拆解「'+char+'」...');
+  try{
+    const d=await callAPI({mode:'hanzi',char});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="dc-char-row">
+        <span class="dc-p">${(d.parts||[{char:'?'}])[0].char}</span>
+        <span class="dc-op">+</span>
+        <span class="dc-p">${(d.parts||[{},{char:'?'}])[1]?.char||'？'}</span>
+        <span class="dc-op">=</span>
+        <span class="dc-r">${char}</span>
+      </div>
+      <div class="script-box">
+        <div class="script-lbl">👩‍🍼 妈妈这样说：</div>
+        <p>${(d.mom_questions||[d.story||''])[0]}</p>
+      </div>
+      <div class="puzzle-box">
+        <strong>🌿 清迈场景：</strong>${d.scene||''}
+      </div>
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('${char}')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+    if(!hist.includes(char)){hist.unshift(char);if(hist.length>8)hist.pop();renderHist();}
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+async function runChengyu(){
+  const sentence=document.getElementById('cyInput').value.trim();
+  if(!sentence)return;
+  showLoading('正在生成成语脚本...');
+  try{
+    const d=await callAPI({mode:'chengyu',sentence});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="dc-char-row">
+        <span class="dc-r" style="font-size:36px">${d.chengyu||''}</span>
+      </div>
+      <div class="script-box">
+        <div class="script-lbl">📖 含义：</div>
+        <p>${d.meaning||''}</p>
+      </div>
+      <div class="script-box" style="margin-top:8px">
+        <div class="script-lbl">👩‍🍼 妈妈台词：</div>
+        <p>${d.mom_script||''}</p>
+      </div>
+      <div class="puzzle-box">
+        <strong>🌿 清迈场景：</strong>${d.chiangmai_scene||''}
+      </div>
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('${d.chengyu}')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+async function runWriting(){
+  const sentence=document.getElementById('wrInput').value.trim();
+  const keywords=document.getElementById('wrKeywords').value.trim();
+  if(!sentence)return;
+  showLoading('正在生成作文脚本...');
+  try{
+    const d=await callAPI({mode:'writing',sentence,keywords});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="script-box">
+        <div class="script-lbl">✍️ 书面作文版：</div>
+        <p style="line-height:2">${d.draft||''}</p>
+      </div>
+      <div class="script-box" style="margin-top:8px">
+        <div class="script-lbl">👩‍🍼 妈妈台词：</div>
+        <p>${d.mom_script||''}</p>
+      </div>
+      ${d.fill_blanks?`<div class="puzzle-box"><strong>✏️ 填空练习：</strong>${d.fill_blanks}</div>`:''}
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('根·中文作文脚本')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+function resetDec(){
+  const card=document.getElementById('decCard');
+  card.classList.remove('show');
+  setTimeout(()=>{card.style.display='none';card.innerHTML='';},450);
+}
+
+function dcShare(text){
+  const t=`刚用根·中文发现「${text}」的秘密！清迈妈妈快来试试 👉 https://yyqdkp-del.github.io/Genchinese/`;
+  if(navigator.share)navigator.share({title:'根·中文',text:t});
+  else navigator.clipboard?.writeText(t).then(()=>alert('已复制 🌿'));
+}
+
 function renderHist(){
   document.getElementById('histChips').innerHTML=
-    hist.map(c=>`<span class="hchip" onclick="loadH('${c}')">${c}</span>`).join('');
-}
-function loadH(c){document.getElementById('decInput').value=c;runDecoder();}
-function resetDec(){
-  document.getElementById('decInput').value='';
-  document.getElementById('decInput').focus();
-  const c=document.getElementById('decCard');
-  c.classList.remove('show');setTimeout(()=>{c.style.display='none';},450);
-}
-function dcShare(){
-  const c=document.getElementById('dcR').textContent;
-  const t=`刚用根·中文发现「${c}」的秘密！清迈妈妈快来试试 👉 https://gen-fawn.vercel.app/assess.html`;
-  if(navigator.share)navigator.share({title:'根·中文·汉字解码器',text:t});
-  else navigator.clipboard?.writeText(t).then(()=>alert('已复制，快分享给妈妈群 🌿'));
+    hist.map(c=>`<span class="hchip" onclick="setDec('hanzi','${c}');runHanzi()">${c}</span>`).join('');
 }
 function toggleHist(){document.getElementById('histChips').classList.toggle('on');}
-document.getElementById('decInput').addEventListener('keydown',e=>{if(e.key==='Enter')runDecoder();});
+document.getElementById('decInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')runHanzi();});
 </script>
 </body>
 </html>
