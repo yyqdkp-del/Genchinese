@@ -663,7 +663,8 @@ footer strong{color:#fff}
       <div class="qr-card wechat">
         <div class="qr-platform">💬 WeChat</div>
         <div class="qr-title">官方微信顾问</div>
-        <button onclick="navigator.clipboard.writeText('Gen-Chinese').then(()=>alert('微信号已复制：Gen-Chinese，请打开微信添加好友 🌿'))" style="width:100%;background:#07C160;color:#fff;padding:14px;border-radius:10px;font-weight:700;border:none;cursor:pointer;font-size:15px;margin-top:8px">
+        <button onclick=" if(navigator.clipboard){navigator.clipboard.writeText('Gen-Chinese').then(()=>alert('微信号已复制：Gen-Chinese\n请打开微信搜索添加好友 🌿'))}else{alert('微信号：Gen-Chinese\n请打开微信搜索添加好友 🌿')}
+" style="width:100%;background:#07C160;color:#fff;padding:14px;border-radius:10px;font-weight:700;border:none;cursor:pointer;font-size:15px;margin-top:8px">
   📋 复制微信号
 </button>
 <p class="qr-hint">复制后打开微信<br>搜索添加好友</p>
