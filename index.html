@@ -663,18 +663,20 @@ footer strong{color:#fff}
       <div class="qr-card wechat">
         <div class="qr-platform">💬 WeChat</div>
         <div class="qr-title">官方微信顾问</div>
-        <div class="qr-img-wrap">
-          <img class="qr-img" src="wechat_qr.jpeg" alt="根·中文 WeChat 二维码" />
-        </div>
-        <p class="qr-hint">微信扫码<br>加顾问为好友</p>
+        <button onclick="navigator.clipboard.writeText('Gen-Chinese').then(()=>alert('微信号已复制：Gen-Chinese，请打开微信添加好友 🌿'))" style="width:100%;background:#07C160;color:#fff;padding:14px;border-radius:10px;font-weight:700;border:none;cursor:pointer;font-size:15px;margin-top:8px">
+  📋 复制微信号
+</button>
+<p class="qr-hint">复制后打开微信<br>搜索添加好友</p>
+
       </div>
       <div class="qr-card line-card">
         <div class="qr-platform">🟢 LINE</div>
         <div class="qr-title">官方LINE顾问</div>
-        <div class="qr-img-wrap">
-          <img class="qr-img" src="line_qr.jpeg" alt="根·中文 LINE 二维码" />
-        </div>
-        <p class="qr-hint">LINE扫码<br>适合清迈家庭</p>
+        <a href="https://line.me/ti/p/~gen-chinede" target="_blank" style="display:block;background:#06C755;color:#fff;padding:14px;border-radius:10px;font-weight:700;text-decoration:none;font-size:15px;margin-top:8px;text-align:center">
+  📱 点击添加 LINE
+</a>
+<p class="qr-hint">点击直接添加<br>适合清迈家庭</p>
+
       </div>
     </div>
 
