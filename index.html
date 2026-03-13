@@ -693,56 +693,164 @@ function toggleAcc(h){
   document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
   if(!was)item.classList.add('open');
 }
+// ── ACCORDION ──
+function toggleAcc(h){
+  const item=h.parentElement,was=item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i=>i.classList.remove('open'));
+  if(!was)item.classList.add('open');
+}
 
 // ── DECODER ──
-const MSGS=[
-  '正在查阅字理古籍...',
-  '正在编写亲子脚本...',
-  '根·中文正在作画...',
-  '正在解锁汉字密码...',
-  '翻阅《说文解字》中...'
-];
-const FB={
-  '休':{p1:'人',p2:'木',
-    script:'宝贝，你看「休」这个字，一个人靠在树旁边休息——这就是"休"！古人在树荫下歇脚，多聪明。',
-    puzzle:'为什么古人要靠着树休息？是因为树荫下最凉快，还是因为树是他们的好朋友？'},
-  '明':{p1:'日',p2:'月',
-    script:'「明」是太阳加月亮，白天有太阳，晚上有月亮，每时每刻都有光，所以"明"就是光明！',
-    puzzle:'如果太阳和月亮同时出现，天会不会亮得让人睁不开眼？'},
-  '闻':{p1:'门',p2:'耳',
-    script:'「闻」是把耳朵贴在门上偷听声音！宝贝，你有没有把耳朵贴过门，听里面有什么声音？',
-    puzzle:'为什么「闻」字里有一只耳朵藏在门里？古人真的喜欢偷听邻居说话吗？'},
-  '森':{p1:'木',p2:'木木',
-    script:'「森」是三棵树！一棵树是"木"，两棵是"林"，三棵就变成大"森"林了！树越多，越有生命力。',
-    puzzle:'为什么三棵树放在一起就变成森林？一棵树是不是会觉得很孤单？'},
-  '怒':{p1:'奴',p2:'心',
-    script:'「怒」下面是一个"心"——生气的时候，心里像着了火一样，对不对？',
-    puzzle:'为什么「怒」字的下面是"心"？是因为生气时心跳得特别快，心里有火吗？'},
-  '好':{p1:'女',p2:'子',
-    script:'「好」是妈妈（女）加上孩子（子）——有妈妈有孩子，就是这个世界上最美好的事！',
-    puzzle:'古人为什么觉得妈妈和孩子在一起就是"好"？你觉得"好"还可以是什么？'}
-};
+const MSGS=['正在查阅字理古籍...','正在编写亲子脚本...','根·中文正在作画...','正在解锁汉字密码...','翻阅《说文解字》中...'];
 let hist=[],lt;
 
-async function runDecoder(){
-  const char=document.getElementById('decInput').value.trim();
-  if(!char)return;
-  const card=document.getElementById('decCard');
-  card.style.display='none';card.classList.remove('show');
+function switchDecTab(btn){
+  document.querySelectorAll('.dec-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.dec-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('dec-'+btn.dataset.tab).classList.add('active');
+  document.getElementById('decCard').style.display='none';
+  document.getElementById('decCard').classList.remove('show');
+}
+
+function setDec(type,val){
+  if(type==='hanzi') document.getElementById('decInput').value=val;
+  if(type==='cy') document.getElementById('cyInput').value=val;
+  if(type==='wr') document.getElementById('wrInput').value=val;
+}
+
+async function callAPI(body){
+  const res=await fetch('https://gen-fawn.vercel.app/api/generate',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(body)});
+  return res.json();
+}
+
+function showLoading(msg){
+  document.getElementById('decCard').style.display='none';
+  document.getElementById('decCard').classList.remove('show');
   const load=document.getElementById('decLoading');
   load.style.display='block';
   let mi=0;
   lt=setInterval(()=>{
     mi=(mi+1)%MSGS.length;
-    document.getElementById('loadMsg').textContent=MSGS[mi];
+    document.getElementById('loadMsg').textContent=msg||MSGS[mi];
   },900);
-  try{
-    const res=await fetch('https://gen-fawn.vercel.app/api/decode',{
-
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({mode:'decoder',char})});
-    const d=await res.json();
-    clearInterval(lt);load.style.display='none';
-    d.p1?showCard(char,d.p1,d.p2||'',d.script,d.puzzle):showFB(char);
-  }catch(e){clearInterval(lt);load.style.display='none';showFB(char);}
 }
+
+function hideLoading(){clearInterval(lt);document.getElementById('decLoading').style.display='none';}
+
+function showCard(html){
+  hideLoading();
+  const card=document.getElementById('decCard');
+  card.innerHTML=html;
+  card.style.display='block';
+  setTimeout(()=>card.classList.add('show'),50);
+}
+
+async function runHanzi(){
+  const char=document.getElementById('decInput').value.trim();
+  if(!char)return;
+  showLoading('正在拆解「'+char+'」...');
+  try{
+    const d=await callAPI({mode:'hanzi',char});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="dc-char-row">
+        <span class="dc-p">${(d.parts||[{char:'?'}])[0].char}</span>
+        <span class="dc-op">+</span>
+        <span class="dc-p">${(d.parts||[{},{char:'?'}])[1]?.char||'？'}</span>
+        <span class="dc-op">=</span>
+        <span class="dc-r">${char}</span>
+      </div>
+      <div class="script-box">
+        <div class="script-lbl">👩‍🍼 妈妈这样说：</div>
+        <p>${(d.mom_questions||[d.story||''])[0]}</p>
+      </div>
+      <div class="puzzle-box">
+        <strong>🌿 清迈场景：</strong>${d.scene||''}
+      </div>
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('${char}')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+    if(!hist.includes(char)){hist.unshift(char);if(hist.length>8)hist.pop();renderHist();}
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+async function runChengyu(){
+  const sentence=document.getElementById('cyInput').value.trim();
+  if(!sentence)return;
+  showLoading('正在生成成语脚本...');
+  try{
+    const d=await callAPI({mode:'chengyu',sentence});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="dc-char-row">
+        <span class="dc-r" style="font-size:36px">${d.chengyu||''}</span>
+      </div>
+      <div class="script-box">
+        <div class="script-lbl">📖 含义：</div>
+        <p>${d.meaning||''}</p>
+      </div>
+      <div class="script-box" style="margin-top:8px">
+        <div class="script-lbl">👩‍🍼 妈妈台词：</div>
+        <p>${d.mom_script||''}</p>
+      </div>
+      <div class="puzzle-box">
+        <strong>🌿 清迈场景：</strong>${d.chiangmai_scene||''}
+      </div>
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('${d.chengyu}')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+async function runWriting(){
+  const sentence=document.getElementById('wrInput').value.trim();
+  const keywords=document.getElementById('wrKeywords').value.trim();
+  if(!sentence)return;
+  showLoading('正在生成作文脚本...');
+  try{
+    const d=await callAPI({mode:'writing',sentence,keywords});
+    if(d.error){showCard('<div style="color:#E8892A;padding:16px">⚠️ '+d.error+'</div>');return;}
+    showCard(`
+      <div class="script-box">
+        <div class="script-lbl">✍️ 书面作文版：</div>
+        <p style="line-height:2">${d.draft||''}</p>
+      </div>
+      <div class="script-box" style="margin-top:8px">
+        <div class="script-lbl">👩‍🍼 妈妈台词：</div>
+        <p>${d.mom_script||''}</p>
+      </div>
+      ${d.fill_blanks?`<div class="puzzle-box"><strong>✏️ 填空练习：</strong>${d.fill_blanks}</div>`:''}
+      <div class="dc-actions">
+        <button class="btn-share" onclick="dcShare('根·中文作文脚本')">📤 分享</button>
+        <button class="btn-retry" onclick="resetDec()">再试一个 →</button>
+      </div>`);
+  }catch(e){showCard('<div style="color:#E8892A;padding:16px">⚠️ 网络错误，请重试</div>');}
+}
+
+function resetDec(){
+  const card=document.getElementById('decCard');
+  card.classList.remove('show');
+  setTimeout(()=>{card.style.display='none';card.innerHTML='';},450);
+}
+
+function dcShare(text){
+  const t=`刚用根·中文发现「${text}」的秘密！清迈妈妈快来试试 👉 https://yyqdkp-del.github.io/Genchinese/`;
+  if(navigator.share)navigator.share({title:'根·中文',text:t});
+  else navigator.clipboard?.writeText(t).then(()=>alert('已复制 🌿'));
+}
+
+function renderHist(){
+  document.getElementById('histChips').innerHTML=
+    hist.map(c=>`<span class="hchip" onclick="setDec('hanzi','${c}');runHanzi()">${c}</span>`).join('');
+}
+function toggleHist(){document.getElementById('histChips').classList.toggle('on');}
+document.getElementById('decInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')runHanzi();});
+</script>
+</body>
+</html>
+
