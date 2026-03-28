@@ -382,8 +382,7 @@ footer strong{color:#fff}
 
 <nav>
   <div class="nav-logo"><span>～</span>根<span>·</span>中文</div>
-  <a href="https://gen-fawn.vercel.app/assess.html" class="nav-cta">免费测评 →</a>
-</nav>
+ <a href="https://gen-companion-tree-3qps.vercel.app/chinese" class="nav-cta">免费测评 →</a></nav>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -392,8 +391,7 @@ footer strong{color:#fff}
     <div class="hero-badge">🌿 清迈陪读家庭专属</div>
     <h1 class="hero-title">在清迈，把中文交给这位"数字保姆"</h1>
     <p class="hero-sub">每天10分钟，妈妈不需要做老师<br>只负责陪伴和爱。</p>
-    <a href="https://gen-fawn.vercel.app/assess.html" class="hero-btn">
-      立即开始免费5分钟能力测评 →
+   <a href="https://gen-companion-tree-3qps.vercel.app/chinese" class="hero-btn">      立即开始免费5分钟能力测评 →
     </a>
   </div>
 </section>
@@ -722,8 +720,7 @@ function setDec(type,val){
 }
 
 async function callAPI(body){
-  const res=await fetch('https://gen-fawn.vercel.app/api/generate',{
-    method:'POST',headers:{'Content-Type':'application/json'},
+ const res=await fetch('https://gen-companion-tree-3qps.vercel.app/api/chinese/decode',{    method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify(body)});
   return res.json();
 }
